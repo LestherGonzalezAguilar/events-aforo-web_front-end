@@ -6,11 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky install"
   },
   "dependencies": {
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.4",
     "next": "13.0.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
@@ -19,6 +18,14 @@
     "@chakra-ui/react": "^2.4.1",
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
-    "framer-motion": "^7.6.9"
+    "eslint": "^8.28.0",
+    "eslint-config-next": "^13.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jsdoc": "^39.6.2",
+    "framer-motion": "^7.6.9",
+    "husky": ">=7",
+    "jsdoc": "^4.0.0",
+    "lint-staged": ">=10",
+    "prettier": "^2.7.1"
   }
 }
