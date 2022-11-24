@@ -1,7 +1,10 @@
 import { Heading } from "@chakra-ui/react";
 
 /**
- * Home Page
+ * the home page
+ *
+ * @type {Function}
+ * @returns Content Home Page
  */
 export default function HomePage() {
   return (

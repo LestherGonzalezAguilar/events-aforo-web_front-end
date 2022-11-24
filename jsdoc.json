@@ -1,0 +1,16 @@
+{
+  "plugins": [],
+  "source": {
+    "include": ["components","pages"],
+    "includePattern": ".js$", 
+    "excludePattern": "(node_modules/)"
+  },
+  "templates": {
+    "claverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "recurse": "true",
+    "destination": "./docs"
+  }
+}
