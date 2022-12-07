@@ -1,5 +1,5 @@
 import { Box, Text } from "@chakra-ui/react";
-import { EventsView } from "../../components/homePage-admin/eventsView/EventsView";
+import { EventsView } from "../../components/homePage-admin/eventsView/EventsLists";
 import { NavbarEvent } from "../../components/homePage-admin/navHomePage-admin/NavbarEvent";
 
 const index = () => {
