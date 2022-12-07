@@ -13,10 +13,20 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-export const EventCard = () => {
+export const EventCard = ({ eventState = false }) => {
+  let filter = "";
+
+  if (eventState) {
+    filter = "";
+  }
+
+  if (!eventState) {
+    filter = "grayscale(80%)";
+  }
+
   return (
-    <Card maxW="sm">
-      <Box display="flex" alignItems="baseline" pl={5} mt={-5}>
+    <Card maxW="xs" filter={filter}>
+      <Box display="flex" alignItems="baseline" pl={5} mt={-2}>
         <Badge borderRadius="full" px="4" py="1" colorScheme="blue">
           Concierto musical
         </Badge>
