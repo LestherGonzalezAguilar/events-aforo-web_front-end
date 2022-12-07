@@ -6,7 +6,7 @@ import { Box, SimpleGrid, Heading, Flex, Center } from "@chakra-ui/react";
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
 
-export const EventsView = () => {
+export const EventsLists = () => {
   const [events, setEvents] = useState(true);
 
   return (
