@@ -1,3 +1,4 @@
+import { AddIcon } from "@chakra-ui/icons";
 import {
   Image,
   Heading,
@@ -50,6 +51,7 @@ export const EventCard = ({ eventState = false }) => {
       <CardFooter>
         <Spacer />
         <Button variant="outline" colorScheme="blue">
+          <AddIcon mr={2} />
           Ver detalles
         </Button>
       </CardFooter>

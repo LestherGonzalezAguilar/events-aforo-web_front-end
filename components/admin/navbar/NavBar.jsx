@@ -38,8 +38,8 @@ export const NavBar = () => {
           <Menu pr={20}>
             <MenuButton color="blue" as={Button} rightIcon={<ChevronDownIcon />}>Nombre</MenuButton>
             <MenuList>
-              <MenuItem py={5}><ArrowLeftIcon mr={6} />Configuración</MenuItem>
-              <MenuItem py={5}><SettingsIcon mr={6} />Cerrar Sesión</MenuItem>
+              <MenuItem py={5}><SettingsIcon mr={6} />Configuración</MenuItem>
+              <MenuItem py={5}><ArrowLeftIcon mr={6} />Cerrar Sesión</MenuItem>
             </MenuList>
           </Menu>
         </Flex>

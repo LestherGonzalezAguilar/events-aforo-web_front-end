@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { Box, Button } from "@chakra-ui/react";
+import FilterIcon from "../../../assets/filter.svg"
 
 export const FilterNav = () => {
   return (
@@ -13,6 +15,7 @@ export const FilterNav = () => {
         Todos
       </Button>
       <Button colorScheme="black" variant="ghost" mr={2}>
+        <Image src={FilterIcon} height={20} alt="filter icon" style={{marginRight: "8px"}}/>
         Filtro
       </Button>
     </Box>
