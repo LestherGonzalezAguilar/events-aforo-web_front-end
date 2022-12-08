@@ -21,7 +21,7 @@ export const HomePage = () => {
               <Button
                 onClick={() => setFilterState("activos")}
                 colorScheme="teal"
-                variant="outline"
+                variant={filterState === "activos" ? "solid" : "outline"}
                 mr={2}
               >
                 Activos
@@ -29,7 +29,7 @@ export const HomePage = () => {
               <Button
                 onClick={() => setFilterState("finalizados")}
                 colorScheme="red"
-                variant="outline"
+                variant={filterState === "finalizados" ? "solid" : "outline"}
                 mr={2}
               >
                 Finalizados
@@ -37,7 +37,7 @@ export const HomePage = () => {
               <Button
                 onClick={() => setFilterState("todos")}
                 colorScheme="purple"
-                variant="outline"
+                variant={filterState === "todos" ? "solid" : "outline"}
                 mr={2}
               >
                 Todos
