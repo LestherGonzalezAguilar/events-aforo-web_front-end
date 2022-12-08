@@ -1,0 +1,66 @@
+export const data = [
+  {
+    id: 1,
+    state: true,
+    category: "concierto musical",
+    name: "Red Hot Chilli Peppers live",
+    date: "Lunes 22 de diciembre",
+    time: "21:00hs",
+    capacity: 1000,
+    image: "https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg",
+  },
+  {
+    id: 2,
+    state: true,
+    category: "concierto musical",
+    name: "Metallica",
+    date: "Sábado 25 de diciembre",
+    time: "21:00hs",
+    capacity: 1000,
+    image:
+      "https://media.ambito.com/p/e6238642d3c1e2d6a24cd68f0019525a/adjuntos/239/imagenes/039/409/0039409977/metallicajpg.jpg",
+  },
+  {
+    id: 3,
+    state: true,
+    category: "concierto musical",
+    name: "Metallica 2",
+    date: "Domingo 28 de diciembre",
+    time: "21:00hs",
+    capacity: 120,
+    image:
+      "https://media.ambito.com/p/e6238642d3c1e2d6a24cd68f0019525a/adjuntos/239/imagenes/039/409/0039409977/metallicajpg.jpg",
+  },
+  {
+    id: 4,
+    state: true,
+    category: "concierto musical",
+    name: "Red Hot Chilli Peppers live",
+    date: "Lunes 22 de diciembre",
+    time: "21:00hs",
+    capacity: 1000,
+    image: "https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg",
+  },
+  {
+    id: 5,
+    state: false,
+    category: "concierto musical",
+    name: "Metallica",
+    date: "Sábado 25 de diciembre",
+    time: "21:00hs",
+    capacity: 1000,
+    image:
+      "https://media.ambito.com/p/e6238642d3c1e2d6a24cd68f0019525a/adjuntos/239/imagenes/039/409/0039409977/metallicajpg.jpg",
+  },
+  {
+    id: 6,
+    state: false,
+    category: "concierto musical",
+    name: "Metallica 2",
+    date: "Domingo 28 de diciembre",
+    time: "21:00hs",
+    capacity: 120,
+    image:
+      "https://media.ambito.com/p/e6238642d3c1e2d6a24cd68f0019525a/adjuntos/239/imagenes/039/409/0039409977/metallicajpg.jpg",
+  },
+];

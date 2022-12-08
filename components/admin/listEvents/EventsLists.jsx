@@ -1,6 +1,5 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
-
 import {
   Box,
   SimpleGrid,
@@ -10,42 +9,50 @@ import {
   Button,
   Grid,
 } from "@chakra-ui/react";
-
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
+import { data } from "../../../data/events";
 
-export const EventsLists = () => {
-  const [events, setEvents] = useState(false);
+export const EventsLists = (events) => {
+  const [eventsData, setEventsData] = useState();
+
+  useEffect(() => {
+    handleData();
+  });
+
+  const handleData = async () => {
+    await setEventsData(data);
+  };
 
   return (
     <Box mt={10}>
-      {events ? (
+      {eventsData ? (
         <>
           <Heading as="h1" size="lg" color="green" mt={20}>
             Activos
           </Heading>
           <Box pt={10}>
             <SimpleGrid columns={4} spacingY="50px" pt={10}>
-              <EventCard eventState={true} />
-              <EventCard eventState={true} />
-              <EventCard eventState={true} />
-              <EventCard eventState={true} />
+              {eventsData
+                .filter((event) => event.state === true)
+                .map((event) => (
+                  <EventCard {...event} key={event.id} />
+                ))}
             </SimpleGrid>
           </Box>
 
           <Heading as="h1" size="lg" color="red" mt={20}>
             Finalizados
           </Heading>
-
-          <SimpleGrid columns={4} spacingY="50px" pt={10}>
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-            <EventCard eventState={false} />
-          </SimpleGrid>
+          <Box pt={10}>
+            <SimpleGrid columns={4} spacingY="50px" pt={10}>
+              {eventsData
+                .filter((event) => event.state === false)
+                .map((event) => (
+                  <EventCard {...event} key={event.id} />
+                ))}
+            </SimpleGrid>
+          </Box>
         </>
       ) : (
         <>
@@ -54,7 +61,9 @@ export const EventsLists = () => {
               <Flex pt={20}>
                 <Image src={Logo} alt="Picture of the author" width={350} />
               </Flex>
-              <Button mt={5} colorScheme='blue' size='md'>Crea un evento</Button>
+              <Button mt={5} colorScheme="blue" size="md">
+                Crea un evento
+              </Button>
             </Grid>
           </Center>
         </>

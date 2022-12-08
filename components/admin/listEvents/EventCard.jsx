@@ -14,14 +14,17 @@ import {
   Box,
 } from "@chakra-ui/react";
 
-export const EventCard = ({ eventState = false }) => {
+export const EventCard = (props) => {
+  
+  const { state, category, name, date, image, time, capacity } = props;
+
   let filter = "";
 
-  if (eventState) {
+  if (state) {
     filter = "";
   }
 
-  if (!eventState) {
+  if (!state) {
     filter = "grayscale(80%)";
   }
 
@@ -29,22 +32,22 @@ export const EventCard = ({ eventState = false }) => {
     <Card maxW="xs" filter={filter}>
       <Box display="flex" alignItems="baseline" pl={5} mt={-2}>
         <Badge borderRadius="full" px="4" py="1" colorScheme="blue">
-          Concierto musical
+          {category}
         </Badge>
       </Box>
       <CardBody>
         <Image
-          src="https://definicion.de/wp-content/uploads/2009/09/concierto.jpg"
+          src={image}
           alt="Green double couch with wooden legs"
           borderRadius="lg"
         />
         <Stack mt="6" spacing="3">
-          <Heading size="md">Nombre del Evento</Heading>
+          <Heading size="md">{name}</Heading>
           <Text color="blue.600" as="b">
-            Lunes 21 de diciembre
+            {date}
           </Text>
-          <Text as="b">Hora: 21:00hs</Text>
-          <Text>Capacidad: 120 personas</Text>
+          <Text as="b">Hora:{time}</Text>
+          <Text>Capacidad: {capacity} personas</Text>
         </Stack>
       </CardBody>
       <Divider />
