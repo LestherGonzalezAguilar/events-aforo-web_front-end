@@ -1,20 +1,15 @@
-import { Box, Text } from "@chakra-ui/react";
-import { NavbarEvent } from "../../components/admin/headerHomePage-admin/NavbarEvent";
-import { EventsLists } from "../../components/admin/listEvents/EventsLists";
+import { Box } from "@chakra-ui/react";
 import { NavBar } from "../../components/admin/navbar/NavBar";
+import { HomePage } from "../../components/admin/listEvents/HomePage";
 
 const index = () => {
   return (
-    <Box>
-      <NavBar />
-      <Box p={20}>
-        <Text as="u" fontSize="xl">
-          Resumen de eventos
-        </Text>
-        <NavbarEvent />
-        <EventsLists />
+    <>
+      <Box>
+        <NavBar />
+        <HomePage />
       </Box>
-    </Box>
+    </>
   );
 };
 
