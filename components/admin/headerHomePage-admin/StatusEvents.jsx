@@ -21,7 +21,7 @@ export const StatusEvents = () => {
         <Flex>
           Activos:
           <Text as="b" color={"green"} ml={1}>
-            {eventsData.filter((event) => event.state === true).length}
+            {eventsData?.filter((event) => event.state === true).length}
           </Text>
         </Flex>
       </Center>
@@ -29,7 +29,7 @@ export const StatusEvents = () => {
         <Flex>
           Finalizados:
           <Text as="b" color={"red"} ml={1}>
-            {eventsData.filter((event) => event.state === false).length}
+            {eventsData?.filter((event) => event.state === false).length}
           </Text>
         </Flex>
       </Center>
@@ -37,7 +37,7 @@ export const StatusEvents = () => {
         <Flex>
           Total de eventos:
           <Text as="b" color={"blue"} ml={1}>
-            {eventsData.length}
+            {eventsData?.length}
           </Text>
         </Flex>
       </Center>

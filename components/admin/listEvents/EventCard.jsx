@@ -46,7 +46,7 @@ export const EventCard = (props) => {
           <Text color="blue.600" as="b">
             {date}
           </Text>
-          <Text as="b">Hora:{time}</Text>
+          <Text as="b">Hora: {time}</Text>
           <Text>Capacidad: {capacity} personas</Text>
         </Stack>
       </CardBody>
