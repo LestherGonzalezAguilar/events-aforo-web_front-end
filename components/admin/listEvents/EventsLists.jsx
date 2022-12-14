@@ -11,7 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
-import { data } from "../../../data/events";
+import { data } from "../../../api/events";
 import { useStatusEvents } from "../../../hooks/useStatusEvents";
 
 export const EventsLists = ({ filterState }) => {

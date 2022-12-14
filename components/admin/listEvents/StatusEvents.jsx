@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Center, Spacer, Text } from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
-import { data } from "../../../data/events";
+import { data } from "../../../api/events";
 import { useStatusEvents } from "../../../hooks/useStatusEvents";
 
 export const StatusEvents = () => {
