@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Box, Text, Grid, Button } from "@chakra-ui/react";
+import { Box, Text, Grid, Button, Flex, Center } from "@chakra-ui/react";
 import FilterIcon from "../../../assets/filter.svg";
 import { StatusEvents } from "./StatusEvents";
 import { EventsLists } from "./EventsLists";
@@ -17,7 +17,7 @@ export const HomePage = () => {
 
         <Grid templateColumns="repeat(2, 1fr)">
           <Grid templateColumns="repeat(2, 1fr)">
-            <Box mt={4}>
+            <Flex mt={4}>
               <Button
                 onClick={() => setFilterState("activos")}
                 colorScheme="teal"
@@ -38,20 +38,22 @@ export const HomePage = () => {
                 onClick={() => setFilterState("todos")}
                 colorScheme="purple"
                 variant={filterState === "todos" ? "solid" : "outline"}
-                mr={2}
+                mr={5}
               >
                 Todos
               </Button>
-              <Button colorScheme="black" variant="ghost" mr={2}>
-                <Image
-                  src={FilterIcon}
-                  height={20}
-                  alt="filter icon"
-                  style={{ marginRight: "8px" }}
-                />
-                Filtro
-              </Button>
-            </Box>
+              <Flex>
+                <Center>
+                  <Image
+                    src={FilterIcon}
+                    height={20}
+                    alt="filter icon"
+                    style={{ marginRight: "8px" }}
+                  />
+                  Filtro
+                </Center>
+              </Flex>
+            </Flex>
           </Grid>
           <StatusEvents />
         </Grid>

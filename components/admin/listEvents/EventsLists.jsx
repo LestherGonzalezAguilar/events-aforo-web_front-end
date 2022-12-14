@@ -15,56 +15,62 @@ import { data } from "../../../data/events";
 
 export const EventsLists = ({ filterState }) => {
   const [eventsData, setEventsData] = useState();
+  const [eventsActive, setEventsActive] = useState();
+  const [eventsFinished, setEventsFinished] = useState();
+
+  let today = new Date();
+  let day = today.getDate();
+  let month = today.getMonth() + 1;
+  let date = today.getFullYear() + "-" + month + "-" + day;
 
   useEffect(() => {
     handleData();
   });
 
-  const handleData = async () => {
-    await setEventsData(data);
+  useEffect(() => {
+    divideEvent();
+  }, [eventsData]);
+
+  const handleData = () => {
+    setEventsData(data);
+  };
+
+  const divideEvent = () => {
+    let eventsActives = eventsData?.filter((event) => event.date_time >= date);
+    let eventsFinishes = eventsData?.filter((event) => event.date_time < date);
+    setEventsActive(eventsActives);
+    setEventsFinished(eventsFinishes);
   };
 
   return (
     <Box mt={10}>
       {eventsData ? (
         <>
-          {filterState !== "finalizados" ? (
-            <Box>
-              <Heading as="h1" size="lg" color="green" mt={20}>
-                Activos
-              </Heading>
-              <Box pt={10}>
-                <SimpleGrid columns={4} spacingY="50px" pt={10}>
-                  {eventsData
-                    .filter((event) => event.state === true)
-                    .map((event) => (
-                      <EventCard {...event} key={event.id} />
-                    ))}
-                </SimpleGrid>
-              </Box>
+          <Box>
+            <Heading as="h1" size="lg" color="green" mt={20}>
+              Activos
+            </Heading>
+            <Box pt={10}>
+              <SimpleGrid columns={4} spacingY="50px" pt={10}>
+                {eventsActive?.map((event) => (
+                  <EventCard {...event} key={event.id} state={"false"} />
+                ))}
+              </SimpleGrid>
             </Box>
-          ) : (
-            <></>
-          )}
+          </Box>
 
-          {filterState !== "activos" ? (
-            <Box>
-              <Heading as="h1" size="lg" color="red" mt={20}>
-                Finalizados
-              </Heading>
-              <Box pt={10}>
-                <SimpleGrid columns={4} spacingY="50px" pt={10}>
-                  {eventsData
-                    .filter((event) => event.state === false)
-                    .map((event) => (
-                      <EventCard {...event} key={event.id} />
-                    ))}
-                </SimpleGrid>
-              </Box>
+          <Box>
+            <Heading as="h1" size="lg" color="red" mt={20}>
+              Finalizados
+            </Heading>
+            <Box pt={10}>
+              <SimpleGrid columns={4} spacingY="50px" pt={10}>
+                {eventsFinished?.map((event) => (
+                  <EventCard {...event} key={event.id} />
+                ))}
+              </SimpleGrid>
             </Box>
-          ) : (
-            <></>
-          )}
+          </Box>
         </>
       ) : (
         <>
