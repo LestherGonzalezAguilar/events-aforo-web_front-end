@@ -6,6 +6,7 @@ import { EventsLists } from "./EventsLists";
 import { useState } from "react";
 
 export const HomePage = () => {
+  
   const [filterState, setFilterState] = useState("todos");
 
   return (

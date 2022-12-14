@@ -17,7 +17,7 @@ import { useStatusEvents } from "../../../hooks/useStatusEvents";
 export const EventsLists = ({ filterState }) => {
   const [eventsData, setEventsData] = useState();
 
-  const[eventsActive,eventsFinished] = useStatusEvents(eventsData)
+  const [eventsActive, eventsFinished] = useStatusEvents(eventsData);
 
   useEffect(() => {
     handleData();
@@ -31,31 +31,35 @@ export const EventsLists = ({ filterState }) => {
     <Box mt={10}>
       {eventsData ? (
         <>
-          <Box>
-            <Heading as="h1" size="lg" color="green" mt={20}>
-              Activos
-            </Heading>
-            <Box pt={10}>
-              <SimpleGrid columns={4} spacingY="50px" pt={10}>
-                {eventsActive?.map((event) => (
-                  <EventCard {...event} key={event.id} state={"false"} />
-                ))}
-              </SimpleGrid>
+          {(filterState === "activos" || filterState === "todos") && (
+            <Box>
+              <Heading as="h1" size="lg" color="green" mt={20}>
+                Activos
+              </Heading>
+              <Box pt={10}>
+                <SimpleGrid columns={4} spacingY="50px" pt={10}>
+                  {eventsActive?.map((event) => (
+                    <EventCard {...event} key={event.id} state={"false"} />
+                  ))}
+                </SimpleGrid>
+              </Box>
             </Box>
-          </Box>
+          )}
 
-          <Box>
-            <Heading as="h1" size="lg" color="red" mt={20}>
-              Finalizados
-            </Heading>
-            <Box pt={10}>
-              <SimpleGrid columns={4} spacingY="50px" pt={10}>
-                {eventsFinished?.map((event) => (
-                  <EventCard {...event} key={event.id} />
-                ))}
-              </SimpleGrid>
+          {(filterState === "finalizados" || filterState === "todos") && (
+            <Box>
+              <Heading as="h1" size="lg" color="red" mt={20}>
+                Finalizados
+              </Heading>
+              <Box pt={10}>
+                <SimpleGrid columns={4} spacingY="50px" pt={10}>
+                  {eventsFinished?.map((event) => (
+                    <EventCard {...event} key={event.id} />
+                  ))}
+                </SimpleGrid>
+              </Box>
             </Box>
-          </Box>
+          )}
         </>
       ) : (
         <>

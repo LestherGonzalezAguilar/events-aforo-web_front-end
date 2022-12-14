@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const useStatusEvents = (eventsData) => {
+  
   useEffect(() => {
     divideEvent();
   }, [eventsData]);

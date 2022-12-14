@@ -2,16 +2,18 @@ import { useEffect, useState } from "react";
 import { Center, Spacer, Text } from "@chakra-ui/react";
 import { Flex } from "@chakra-ui/react";
 import { data } from "../../../data/events";
+import { useStatusEvents } from "../../../hooks/useStatusEvents";
 
 export const StatusEvents = () => {
   const [eventsData, setEventsData] = useState();
+  const [eventsActive, eventsFinished] = useStatusEvents(eventsData);
 
   useEffect(() => {
     handleData();
   });
 
-  const handleData = async () => {
-    await setEventsData(data);
+  const handleData = () => {
+    setEventsData(data);
   };
 
   return (
@@ -21,7 +23,7 @@ export const StatusEvents = () => {
         <Flex>
           Activos:
           <Text as="b" color={"green"} ml={1}>
-            {eventsData?.filter((event) => event.state === true).length}
+            {eventsActive?.length}
           </Text>
         </Flex>
       </Center>
@@ -29,7 +31,7 @@ export const StatusEvents = () => {
         <Flex>
           Finalizados:
           <Text as="b" color={"red"} ml={1}>
-            {eventsData?.filter((event) => event.state === false).length}
+            {eventsFinished?.length}
           </Text>
         </Flex>
       </Center>
