@@ -12,34 +12,19 @@ import {
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
 import { data } from "../../../data/events";
+import { useStatusEvents } from "../../../hooks/useStatusEvents";
 
 export const EventsLists = ({ filterState }) => {
   const [eventsData, setEventsData] = useState();
-  const [eventsActive, setEventsActive] = useState();
-  const [eventsFinished, setEventsFinished] = useState();
 
-  let today = new Date();
-  let day = today.getDate();
-  let month = today.getMonth() + 1;
-  let date = today.getFullYear() + "-" + month + "-" + day;
+  const[eventsActive,eventsFinished] = useStatusEvents(eventsData)
 
   useEffect(() => {
     handleData();
   });
 
-  useEffect(() => {
-    divideEvent();
-  }, [eventsData]);
-
   const handleData = () => {
     setEventsData(data);
-  };
-
-  const divideEvent = () => {
-    let eventsActives = eventsData?.filter((event) => event.date_time >= date);
-    let eventsFinishes = eventsData?.filter((event) => event.date_time < date);
-    setEventsActive(eventsActives);
-    setEventsFinished(eventsFinishes);
   };
 
   return (

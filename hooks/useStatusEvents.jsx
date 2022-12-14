@@ -1,4 +1,10 @@
-export const useStatusEvents = ({ eventsData }) => {
+import { useEffect, useState } from "react";
+
+export const useStatusEvents = (eventsData) => {
+  useEffect(() => {
+    divideEvent();
+  }, [eventsData]);
+
   const [eventsActive, setEventsActive] = useState();
   const [eventsFinished, setEventsFinished] = useState();
 
@@ -6,11 +12,13 @@ export const useStatusEvents = ({ eventsData }) => {
   let day = today.getDate();
   let month = today.getMonth() + 1;
   let date = today.getFullYear() + "-" + month + "-" + day;
-  
-  const filterEventActive = async () => {
-    let events = await data?.filter((event) => event.date_time > date);
-    setEventsActive(events);
+
+  const divideEvent = () => {
+    let eventsActives = eventsData?.filter((event) => event.date_time >= date);
+    let eventsFinishes = eventsData?.filter((event) => event.date_time < date);
+    setEventsActive(eventsActives);
+    setEventsFinished(eventsFinishes);
   };
-  
-  return 
+
+  return [eventsActive, eventsFinished];
 };
