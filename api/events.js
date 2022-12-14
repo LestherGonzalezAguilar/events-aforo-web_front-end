@@ -28,10 +28,10 @@ export const data = [
   {
     id: 4,
     id_categories: 2,
-    name: "Red Hot Chilli Peppers live",
+    name: "AC/DC",
     date_time: "2022-12-16",
     capacity: 1000,
-    img: "https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg",
+    img: "https://imageio.forbes.com/specials-images/imageserve/5fc5330d370d682bc9f44d9c/AC-DC-Perform-At-Queen-Elizabeth-Olympic-Park/960x0.jpg?format=jpg&width=960",
   },
   {
     id: 5,

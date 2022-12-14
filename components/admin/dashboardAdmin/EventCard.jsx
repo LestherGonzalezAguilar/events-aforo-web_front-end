@@ -27,10 +27,6 @@ export const EventCard = (props) => {
 
   let filter = "";
 
-  if (state) {
-    filter = "";
-  }
-
   if (!state) {
     filter = "grayscale(80%)";
   }
@@ -70,6 +66,7 @@ export const EventCard = (props) => {
             src={img}
             alt={name}
             borderRadius="lg"
+            style={{ width: "100%", height: "160px", objectFit: "cover" }}
           />
           <Stack mt="6" spacing="3">
             <Heading size="md">{name}</Heading>
