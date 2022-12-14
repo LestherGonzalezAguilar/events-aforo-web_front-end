@@ -13,8 +13,7 @@ export const DashboardAdmin = () => {
   };
 
   return (
-    <div>
-
+    <main>
       <Head>
         <title>Panel del organizador</title>
         <meta name="description" content="Dashboard, panel del organizador" />
@@ -40,6 +39,6 @@ export const DashboardAdmin = () => {
           <EventsLists filterState={filterStateFinal} />
         </Box>
       </section>
-    </div>
+    </main>
   );
 };

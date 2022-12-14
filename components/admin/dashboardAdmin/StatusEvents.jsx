@@ -21,7 +21,7 @@ export const StatusEvents = () => {
       <Spacer />
       <Center mx={2}>
         <Flex>
-          Activos:
+          <h5>Activos:</h5>
           <Text as="b" color={"green"} ml={1}>
             {eventsActive?.length}
           </Text>
@@ -29,7 +29,7 @@ export const StatusEvents = () => {
       </Center>
       <Center mx={2}>
         <Flex>
-          Finalizados:
+          <h5> Finalizados:</h5>
           <Text as="b" color={"red"} ml={1}>
             {eventsFinished?.length}
           </Text>
@@ -37,7 +37,7 @@ export const StatusEvents = () => {
       </Center>
       <Center mx={2}>
         <Flex>
-          Total de eventos:
+          <h5> Total de eventos:</h5>
           <Text as="b" color={"blue"} ml={1}>
             {eventsData?.length}
           </Text>
