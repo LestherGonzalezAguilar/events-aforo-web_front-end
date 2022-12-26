@@ -1,4 +1,4 @@
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider } from '@chakra-ui/react'
 
 /**
  * initialize page
@@ -7,7 +7,7 @@ import { ChakraProvider } from "@chakra-ui/react"
  */
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider> 
+    <ChakraProvider>
       <Component {...pageProps} />
     </ChakraProvider>
   )

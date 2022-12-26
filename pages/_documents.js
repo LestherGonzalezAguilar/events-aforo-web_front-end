@@ -1,4 +1,4 @@
-import { Html, Head, Main, NextScript } from "next/document"
+import { Html, Head, Main, NextScript } from 'next/document'
 
 /**
  * Document bock general page
@@ -8,10 +8,10 @@ import { Html, Head, Main, NextScript } from "next/document"
 export default function HomePage() {
   return (
     <Html lang="en">
-      <Head/>
+      <Head />
       <body>
         <Main />
-        <NextScript/>
+        <NextScript />
       </body>
     </Html>
   )
