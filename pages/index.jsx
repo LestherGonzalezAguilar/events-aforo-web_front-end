@@ -1,13 +1,16 @@
-import { Heading } from "@chakra-ui/react";
+import { NavBar } from "../components/client";
+import { PageLayout } from "../components/client/layouts/PageLayout";
 
 /**
  * the home page
  *
  * @type {Function}
- * @returns Content Home Page
+ * @returns {object} Props Content Home Page
  */
 export default function HomePage() {
   return (
-    <Heading as="h2">Home Page</Heading>
+    <PageLayout>
+      <NavBar />
+    </PageLayout>
   )
 }
