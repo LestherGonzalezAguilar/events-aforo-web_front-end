@@ -1,0 +1,52 @@
+export const data = [
+  {
+    id: 1,
+    id_categories: 1,
+    name: "No",
+    date_time: "2005-12-13",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
+    capacity: 1000,
+    img: "https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg",
+  },
+  {
+    id: 2,
+    id_categories: 4,
+    name: "Si",
+    date_time: "2022-12-16",
+    capacity: 1000,
+    img: "https://media.ambito.com/p/41ea419d64a7c34dfa64fa0b521a0ea0/adjuntos/239/imagenes/039/409/0039409975/metallicajpg.jpg",
+  },
+  {
+    id: 3,
+    id_categories: 2,
+    name: "Metallica 2",
+    date_time: "2022-12-16",
+    capacity: 120,
+    img: "https://media.ambito.com/p/41ea419d64a7c34dfa64fa0b521a0ea0/adjuntos/239/imagenes/039/409/0039409975/metallicajpg.jpg",
+  },
+  {
+    id: 4,
+    id_categories: 2,
+    name: "AC/DC",
+    date_time: "2022-12-16",
+    capacity: 1000,
+    img: "https://imageio.forbes.com/specials-images/imageserve/5fc5330d370d682bc9f44d9c/AC-DC-Perform-At-Queen-Elizabeth-Olympic-Park/960x0.jpg?format=jpg&width=960",
+  },
+  {
+    id: 5,
+    id_categories: 3,
+    name: "Metallica",
+    date_time: "2022-12-16",
+    capacity: 1000,
+    img: "https://media.ambito.com/p/41ea419d64a7c34dfa64fa0b521a0ea0/adjuntos/239/imagenes/039/409/0039409975/metallicajpg.jpg",
+  },
+  {
+    id: 6,
+    id_categories: 1,
+    name: "Metallica 2",
+    date_time: "2022-12-16",
+    capacity: 120,
+    img: "https://media.ambito.com/p/41ea419d64a7c34dfa64fa0b521a0ea0/adjuntos/239/imagenes/039/409/0039409975/metallicajpg.jpg",
+  },
+];
