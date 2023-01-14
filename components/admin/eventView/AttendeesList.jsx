@@ -21,10 +21,10 @@ export const AttendeesList = () => {
       <TableContainer>
         <Table variant="simple">
           <Thead>
-            <Tr>
+            <Tr >
               <Th>Nombre y Apellido</Th>
-              <Th>Codigo de invitacion</Th>
-              <Th isNumeric>email</Th>
+              <Th textAlign={"center"}>Codigo de invitacion</Th>
+              <Th textAlign={"end"}>email</Th>
             </Tr>
           </Thead>
           <Attendee />

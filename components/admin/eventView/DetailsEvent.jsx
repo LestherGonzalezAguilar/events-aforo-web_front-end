@@ -1,3 +1,4 @@
+import { useState } from "react";
 import {
   Box,
   Button,
@@ -8,18 +9,38 @@ import {
   Badge,
   Grid,
   Divider,
+  Image,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { AttendeesList } from "./AttendeesList";
+import { data } from "../../../api/events";
 
 export const DetailsEvent = () => {
+  const [eventsData, setEventsData] = useState();
+
+  // useEffect(() => {
+  //   handleData();
+  // });
+
+  // const handleData = () => {
+  //   setEventsData(data);
+  // };
+
   return (
     <div>
       <Box>
+        <Image
+          src={"https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg"}
+          alt={"asd"}
+          width="100%"
+          ratio={16 / 9}
+          objectFit={"cover"}
+          height={"100vh"}
+        />
         <Flex mr={20} my={10}>
           <Spacer />
           <Button variant="link" colorScheme="red" size="lg" fontSize="2xl">
-            <EditIcon mr={3}/>
+            <EditIcon mr={3} />
             Editar
           </Button>
         </Flex>
