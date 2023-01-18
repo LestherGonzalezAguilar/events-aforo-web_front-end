@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 import {
   Box,
   Button,
@@ -9,34 +10,26 @@ import {
   Badge,
   Grid,
   Divider,
-  Image,
 } from "@chakra-ui/react";
 import { EditIcon } from "@chakra-ui/icons";
 import { AttendeesList } from "./AttendeesList";
 import { data } from "../../../api/events";
 
 export const DetailsEvent = () => {
-  const [eventsData, setEventsData] = useState();
-
-  // useEffect(() => {
-  //   handleData();
-  // });
-
-  // const handleData = () => {
-  //   setEventsData(data);
-  // };
-
   return (
     <div>
       <Box>
-        <Image
-          src={"https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg"}
-          alt={"asd"}
-          width="100%"
-          ratio={16 / 9}
-          objectFit={"cover"}
-          height={"100vh"}
-        />
+        <Box ratio={16 / 9} objectFit={"cover"} background={"black"}>
+          <Image
+            src={"https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg"}
+            alt={"asd"}
+            width={100}
+            height={100}
+            layout="responsive"
+            quality={100}
+            priority={true}
+          />
+        </Box>
         <Flex mr={20} my={10}>
           <Spacer />
           <Button variant="link" colorScheme="red" size="lg" fontSize="2xl">
@@ -55,9 +48,16 @@ export const DetailsEvent = () => {
               <Text color="blue.600" as="b" mt={2}>
                 Lunes 21 de diciembre
               </Text>
-              <Text as="b" mt={2}>
-                Hora: 21:00hs
-              </Text>
+
+              <Flex mt={2}>
+                <Text as="b" mr={1}>
+                  Hora:
+                </Text>
+                <Text color="red" as="b">
+                  21:00hs
+                </Text>
+              </Flex>
+
               <Text mt={2}>Capacidad: 120 personas</Text>
             </Grid>
             <Divider />
