@@ -11,8 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
-import { data } from "../../../api/events";
 import { useStatusEvents } from "../../../hooks/useStatusEvents";
+import { data } from "../../../api/events";
 
 export const EventsLists = ({ filterState }) => {
   const [eventsData, setEventsData] = useState();
@@ -29,7 +29,7 @@ export const EventsLists = ({ filterState }) => {
 
   return (
     <Box mt={10}>
-      {eventsData ? (
+      {data ? (
         <>
           {(filterState === "activos" || filterState === "todos") && (
             <Box>
