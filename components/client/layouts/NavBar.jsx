@@ -5,7 +5,7 @@ import { Logo } from "../";
 export const NavBar = () => {
     return (
         <Box as='nav' boxShadow='md'>
-            <Flex px={20} py={5}>
+            <Flex px={20} py={5} maxWidth='1680px' margin='auto'>
                 <Logo />
                 <Spacer />
                 <Flex gap={3} alignItems='center' color='gray.800'>
