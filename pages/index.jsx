@@ -1,9 +1,9 @@
 import { Box, Text } from "@chakra-ui/react";
-import React, { useMemo, useState } from "react";
+import React, { useState } from "react";
 import { Banner, FilterEvents, NavBar } from "../components/client";
 import { EventCard } from "../components/client/EventCard";
-import { PageLayout } from "../components/client/layouts/PageLayout";
 import { getStateEvent } from "../components/client/helpers/getStateEvent";
+import { PageLayout } from "../components/client/layouts/PageLayout";
 
 const events = [
   {
@@ -105,7 +105,6 @@ export default function HomePage() {
     setEventsAforify(Filtereddata)
     // console.log(Filtereddata)
   }
-
 
   return (
     <PageLayout>

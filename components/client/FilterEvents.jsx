@@ -25,7 +25,7 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
             return new Date(fecha).toDateString()
         }
 
-        console.log({ selectOrganizator, selectEventState, selectEventCategory, eventDate: events[0].date, inputDateFormatted: inputDateFormatted(), inputDate });
+        // console.log({ selectOrganizator, selectEventState, selectEventCategory, eventDate: events[0].date, inputDateFormatted: inputDateFormatted(), inputDate });
         let eventFiltered = events.filter(event => { return event.name.match(inputSearch) })
         if (inputDate !== '')
             eventFiltered = eventFiltered.filter(event => { return event.date === inputDateFormatted() })
@@ -36,7 +36,7 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
         if (selectEventState !== '')
             eventFiltered = eventFiltered.filter(event => { return event.state === selectEventState })
 
-        console.log(eventFiltered)
+        // console.log(eventFiltered)
         onSubmitSearch(eventFiltered)
     }
 

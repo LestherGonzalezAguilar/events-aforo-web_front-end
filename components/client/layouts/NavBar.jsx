@@ -6,7 +6,7 @@ import { Logo } from "../";
 export const NavBar = () => {
     return (
         <Box as='nav' boxShadow='md'>
-            <Flex px={20} style={{padding:'1em 0'}} width='90%' maxWidth='1680px' margin='auto' justifyContent='flex-start' alignItems='center'>
+            <Flex px={20} style={{ padding: '1em 0' }} width='90%' maxWidth='1680px' margin='auto' justifyContent='flex-start' alignItems='center'>
                 <Logo />
                 <Show breakpoint='(min-width: 900px)'>
                     <Spacer />
@@ -37,6 +37,12 @@ export const NavBar = () => {
                             aria-label='Options'
                             icon={<HamburgerIcon />}
                             variant='outline'
+                            fontSize={30}
+                            padding={0.5}
+                            color='gray.800'
+                            border='2px solid #E2E8F0'
+                            borderRadius='0.15em'
+                            _hover={{ backgroundColor: '#E2E8F0' }}
                         />
                         <MenuList>
                             <MenuItem icon={<AddIcon />} command='⌘T'>
