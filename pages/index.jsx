@@ -29,7 +29,7 @@ const events = [
     id: '12312rasibfaasda',
     name: 'title event #2',
     description: 'description event #2',
-    date: 'Thu Jan 27 2023',
+    date: 'Fri Jan 27 2023',
     hour: new Date().getTime(),
     capacity: 250,
     img: 'https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80',
@@ -114,8 +114,8 @@ export default function HomePage() {
         <FilterEvents onSubmitSearch={onSubmitSearch} events={events} />
 
         <Box pb={4}>
-          <Text as='h1' fontWeight='bold' fontSize={{ base: 18, md: 26 }} textDecoration='underline'>Eventos</Text>
-          <Box display='flex' gap={5} flexWrap='wrap'>
+          <Text id="events" as='h1' fontWeight='bold' fontSize={{ base: 18, md: 26 }} textDecoration='underline'>Eventos</Text>
+          <Box display='flex' gap={4} flexWrap='wrap' justifyContent='space-between'>
             {eventsAforify.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}

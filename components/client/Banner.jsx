@@ -14,7 +14,7 @@ export const Banner = () => {
             height='fill'
           />
         </Box>
-        <Flex justifyContent='center' flexDirection='column' width={{ base: '80%', lg: '60%' }}>
+        <Flex justifyContent='center' flexDirection='column' width={{ base: '80%' }}>
           <Text fontWeight='semibold' fontSize={{ base: 'xl', md: 'xl', lg: 'xl', xl: '3xl' }}>
             En <span style={{ fontWeight: 'bold', color: '#4548EB', fontStyle: 'italic' }}>afori</span><span style={{ fontWeight: 'bold', color: '#F26D73', fontStyle: 'italic' }}>fy</span>, puedes asistir, crear y administrar tus eventos para bodas, conciertos musicales, conferencias entre otros.
           </Text>

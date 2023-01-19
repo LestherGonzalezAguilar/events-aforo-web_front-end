@@ -44,7 +44,7 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
     return (
         <form onSubmit={onSubmit} >
             <Box maxWidth='1680px' margin='auto'>
-                <Flex flexDirection={{ base: 'column', md: 'row', lg: 'row' }} margin='auto' justifyContent='center' alignItems='center' gap={4}>
+                <Flex flexDirection={{ base: 'column', md: 'row', lg: 'row' }} maxWidth='800px' margin='auto' justifyContent='center' alignItems='center' gap={4}>
                     <InputGroup>
                         <InputLeftElement height='100%'
                             pointerEvents='none'
@@ -101,7 +101,7 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
                             value={selectEventCategory} name="selectEventCategory" onChange={onInputChange}
                         >
                             {/* //TODO Realizar las opciones con los id correspondientes */}
-                            <option value='Concierto'>Concierto musical</option>
+                            <option value='Concierto'>Concierto</option>
                             <option value='Conferencia'>Conferencia</option>
                             <option value='Moda y Belleza'>Moda y belleza</option>
                             <option value='Tecnologías'>Tecnologías</option>
