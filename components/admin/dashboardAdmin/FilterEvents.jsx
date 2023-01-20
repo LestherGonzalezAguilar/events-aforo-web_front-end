@@ -19,7 +19,7 @@ export const FilterEvents = ({ addMensaje }) => {
           onClick={() => changeStateFilter("todos")}
           colorScheme="purple"
           variant={filterState === "todos" ? "solid" : "outline"}
-          mr={5}
+          mr={2}
         >
           Todos
         </Button>
@@ -35,7 +35,7 @@ export const FilterEvents = ({ addMensaje }) => {
           onClick={() => changeStateFilter("finalizados")}
           colorScheme="red"
           variant={filterState === "finalizados" ? "solid" : "outline"}
-          mr={2}
+          mr={5}
         >
           Finalizados
         </Button>
