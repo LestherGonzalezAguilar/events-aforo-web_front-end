@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
-import { Button, Center, Flex, Grid } from "@chakra-ui/react";
+import { Button, Center, Flex, Grid, Hide, Show } from "@chakra-ui/react";
 
 import FilterIcon from "../../../assets/filter.svg";
 
@@ -15,6 +15,14 @@ export const FilterEvents = ({ addMensaje }) => {
   return (
     <Grid templateColumns="repeat(2, 1fr)">
       <Flex mt={4}>
+        <Button
+          onClick={() => changeStateFilter("todos")}
+          colorScheme="purple"
+          variant={filterState === "todos" ? "solid" : "outline"}
+          mr={5}
+        >
+          Todos
+        </Button>
         <Button
           onClick={() => changeStateFilter("activos")}
           colorScheme="teal"
@@ -31,25 +39,19 @@ export const FilterEvents = ({ addMensaje }) => {
         >
           Finalizados
         </Button>
-        <Button
-          onClick={() => changeStateFilter("todos")}
-          colorScheme="purple"
-          variant={filterState === "todos" ? "solid" : "outline"}
-          mr={5}
-        >
-          Todos
-        </Button>
-        <Flex>
-          <Center>
-            <Image
-              src={FilterIcon}
-              height={20}
-              alt="filter icon"
-              style={{ marginRight: "8px" }}
-            />
-            Filtro
-          </Center>
-        </Flex>
+        <Hide below="lg">
+          <Flex>
+            <Center>
+              <Image
+                src={FilterIcon}
+                height={20}
+                alt="filter icon"
+                style={{ marginRight: "8px" }}
+              />
+              Filtro
+            </Center>
+          </Flex>
+        </Hide>
       </Flex>
     </Grid>
   );
