@@ -1,6 +1,6 @@
 import { Box } from "@chakra-ui/react";
-import { NavBar } from "../../components/admin/navbar/NavBar";
 import { DashboardAdmin } from "../../components/admin/dashboardAdmin/DashboardAdmin";
+import { NavBar } from "../../components/admin/navBar/NavBar";
 
 const index = () => {
   return (

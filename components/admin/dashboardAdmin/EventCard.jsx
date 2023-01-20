@@ -13,6 +13,7 @@ import {
   Badge,
   Box,
 } from "@chakra-ui/react";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export const EventCard = (props) => {
@@ -35,9 +36,9 @@ export const EventCard = (props) => {
 
   return (
     <article key={id}>
-      <Card maxW="xs" filter={filter}>
+      <Card w="xs" filter={filter}>
         <Box display="flex" alignItems="baseline" pl={5} mt={-2}>
-          <Badge borderRadius="full" px="4" py="1" colorScheme={category.color}>
+          <Badge borderRadius="full" px="4" py="1" background={category.color}>
             {category.name}
           </Badge>
         </Box>
@@ -65,10 +66,12 @@ export const EventCard = (props) => {
         <Divider />
         <CardFooter>
           <Spacer />
-          <Button variant="outline" colorScheme="blue">
-            <AddIcon mr={2} />
-            Ver detalles
-          </Button>
+          <Link href="admin/event/1">
+            <Button variant="outline" colorScheme="blue">
+              <AddIcon mr={2} />
+              Ver detalles
+            </Button>
+          </Link>
         </CardFooter>
       </Card>
     </article>

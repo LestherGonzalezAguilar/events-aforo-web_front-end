@@ -18,7 +18,7 @@ export const AttendeesList = () => {
       <Text as="b" mr={12}>
         Cantidad: 80
       </Text>
-      <TableContainer>
+      <TableContainer my={5}>
         <Table variant="simple">
           <Thead>
             <Tr >
