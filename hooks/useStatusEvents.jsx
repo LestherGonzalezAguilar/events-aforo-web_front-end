@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 
 export const useStatusEvents = (eventsData) => {
-  
   useEffect(() => {
     divideEvent();
   }, [eventsData]);
@@ -15,8 +14,8 @@ export const useStatusEvents = (eventsData) => {
   let date = today.getFullYear() + "-" + month + "-" + day;
 
   const divideEvent = () => {
-    let eventsActives = eventsData?.filter((event) => event.date_time >= date);
-    let eventsFinishes = eventsData?.filter((event) => event.date_time < date);
+    let eventsActives = eventsData?.filter((event) => event.date >= date);
+    let eventsFinishes = eventsData?.filter((event) => event.date < date);
     setEventsActive(eventsActives);
     setEventsFinished(eventsFinishes);
   };

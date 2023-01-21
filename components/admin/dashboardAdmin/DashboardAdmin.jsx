@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Box, Text, Grid } from "@chakra-ui/react";
+import { Box, Text, Grid, Heading } from "@chakra-ui/react";
 import { StatusEvents } from "./StatusEvents";
 import { EventsLists } from "./EventsLists";
 import { FilterEvents } from "./FilterEvents";
@@ -22,15 +22,15 @@ export const DashboardAdmin = () => {
       </Head>
 
       <section>
-        <Box p={20}>
-          <h3>
+        <Box p={{base: 3, md: 5 ,lg:10}}>
+          <Heading my={5} textAlign={{base: "center", lg: "initial"}}>
             <Text as="u" fontSize="xl">
               Resumen de eventos
             </Text>
-          </h3>
+          </Heading>
 
           <nav>
-            <Grid templateColumns="repeat(2, 1fr)">
+            <Grid flexDirection={{ base: 'column', md: 'row', lg: 'row' }} templateColumns={{lg: "repeat(2, 1fr)"}} >
               <FilterEvents addMensaje={addMensaje} />
               <StatusEvents />
             </Grid>
