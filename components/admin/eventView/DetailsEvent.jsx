@@ -30,7 +30,7 @@ export const DetailsEvent = () => {
             priority={true}
           />
         </Box>
-        <Flex mr={20} my={10}>
+        <Flex mr={{ base: 8, lg: 20 }} my={10}>
           <Spacer />
           <Button variant="link" colorScheme="red" size="lg" fontSize="2xl">
             <EditIcon mr={3} />
@@ -38,7 +38,7 @@ export const DetailsEvent = () => {
           </Button>
         </Flex>
 
-        <Flex px={20}>
+        <Flex px={{ base: 8, lg: 20 }} flexDirection={{base: "column", md: "row"}}>
           <Box>
             <Heading as="h1" size="2xl">
               Nombre del evento
