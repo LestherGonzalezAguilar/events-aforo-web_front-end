@@ -6,7 +6,7 @@ import { Logo } from "../";
 export const NavBar = () => {
     return (
         <Box as='nav' boxShadow='md'>
-            <Flex px={20} style={{ padding: '1em 0' }} width='90%' maxWidth='1680px' margin='auto' justifyContent='flex-start' alignItems='center'>
+            <Flex px={20} style={{ padding: '1em 0' }} width={{ base: '90%', md: '80%', lg: '70%' }} maxWidth='1680px' margin='auto' justifyContent='flex-start' alignItems='center'>
                 <Logo />
                 <Show breakpoint='(min-width: 900px)'>
                     <Spacer />
