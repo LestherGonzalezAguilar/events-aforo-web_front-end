@@ -4,15 +4,11 @@ import {
   Flex,
   Heading,
   Input,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Select,
   Stack,
   Text,
   Textarea,
+  useToast,
 } from "@chakra-ui/react";
 import React from "react";
 import { useForm } from "../../../hooks/useForm";
@@ -22,12 +18,14 @@ const initialForm = {
   description: "",
   date: "",
   hour: "",
-  capacity: 0,
+  capacity: "",
   img: "",
   category: "",
 };
 
 export const FormCreateEvents = () => {
+  const toast = useToast();
+
   const {
     inputImg,
     inputName,
@@ -38,10 +36,12 @@ export const FormCreateEvents = () => {
     inputCategory,
     onInputChange,
     formState,
+    onResetForm,
   } = useForm(initialForm);
 
   const handleSubmit = () => {
     console.log(formState);
+    onResetForm();
   };
 
   return (
@@ -101,18 +101,13 @@ export const FormCreateEvents = () => {
 
           <Box>
             <Text mb="10px">Capacidad </Text>
-            <NumberInput
+            <Input
               name="capacity"
               value={inputCapacity}
               defaultValue={0}
               onChange={onInputChange}
-            >
-              <NumberInputField />
-              <NumberInputStepper>
-                <NumberIncrementStepper />
-                <NumberDecrementStepper />
-              </NumberInputStepper>
-            </NumberInput>
+              type="number"
+            />
           </Box>
 
           <Box>
@@ -146,7 +141,17 @@ export const FormCreateEvents = () => {
               <Button
                 width={{ base: "200px", lg: "400px" }}
                 colorScheme="blue"
-                onSubmit={handleSubmit}
+                onClick={() => {
+                  handleSubmit();
+                  toast({
+                    title: "Evento Creado",
+                    description:
+                      "El evento ya fue agregado a nuestra base de datos",
+                    status: "success",
+                    duration: 3000,
+                    isClosable: true,
+                  });
+                }}
               >
                 Publicar
               </Button>
