@@ -1,3 +1,4 @@
+import Link from "next/link";
 import {
   AddIcon,
   ArrowLeftIcon,
@@ -18,7 +19,10 @@ import {
   Spacer,
   Text,
 } from "@chakra-ui/react";
-import Link from "next/link";
+
+// import { AiOutlineLogout } from "react-icons/ai";
+import { FiLogOut } from "react-icons/fi";
+
 import { Logo } from "./Logo";
 
 export const NavBar = () => {
@@ -60,8 +64,10 @@ export const NavBar = () => {
               </MenuButton>
               <MenuList>
                 <MenuItem py={5}>
-                  <ArrowLeftIcon mr={6} />
-                  Cerrar Sesión
+                  <Text color={"red"}>
+                    <FiLogOut />
+                  </Text>
+                  <Text ml={3}>Cerrar Sesión</Text>
                 </MenuItem>
               </MenuList>
             </Menu>
