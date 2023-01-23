@@ -6,7 +6,7 @@ const index = () => {
   return (
     <>
       <Box>
-        {/* <NavBar /> */}
+        <NavBar />
         <FormCreateEvents />
       </Box>
     </>

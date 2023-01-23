@@ -8,6 +8,7 @@ import {
 import {
   Box,
   Button,
+  Center,
   Flex,
   Menu,
   MenuButton,
@@ -22,7 +23,7 @@ import { Logo } from "./Logo";
 
 export const NavBar = () => {
   return (
-    <Box as="nav" boxShadow="md">
+    <Box as="nav" boxShadow="md" backgroundColor={"gray.200"}>
       <Flex
         px={20}
         style={{ padding: "1em 0" }}
@@ -32,7 +33,10 @@ export const NavBar = () => {
         justifyContent="flex-start"
         alignItems="center"
       >
-        <Logo />
+        <Center justifyContent="flex-start" alignItems="center">
+          <Logo />
+          <Text ml={4}>Panel del organizador</Text>
+        </Center>
         <Show breakpoint="(min-width: 900px)">
           <Spacer />
           <Flex gap={3} alignItems="center" color="gray.800">
