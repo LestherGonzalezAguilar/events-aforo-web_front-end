@@ -20,10 +20,10 @@ export const Banner = () => {
           </Text>
           <Flex gap={4} color='white' my={4}>
             <Link style={{ width: '100%' }} href='/admin/form'>
-              <Button width='100%' backgroundColor='#4548EB' fontSize={18}>Crear evento</Button>
+              <Button width='100%' backgroundColor='#4548EB' _hover={{backgroundColor:'#3639C0'}}  fontSize={18}>Crear evento</Button>
             </Link>
             <Link style={{ width: '100%' }} href='#events'>
-              <Button width='100%' backgroundColor='#F26D73' fontSize={18}>Eventos</Button>
+              <Button width='100%' backgroundColor='#F26D73' _hover={{backgroundColor:'#CA4F55'}} fontSize={18}>Eventos</Button>
             </Link>
           </Flex>
         </Flex>
