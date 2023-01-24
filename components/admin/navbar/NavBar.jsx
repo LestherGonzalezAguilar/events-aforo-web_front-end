@@ -49,7 +49,7 @@ export const NavBar = () => {
                 Resumen
               </Text>
             </Link>
-            <Link href="/admin/form">
+            <Link href="/admin/form-create-event">
               <Text fontWeight="bold" pr={8}>
                 Crear Evento
               </Text>
@@ -99,7 +99,7 @@ export const NavBar = () => {
                 <MenuItem icon={<CalendarIcon />}>Resumen</MenuItem>
               </Link>
 
-              <Link href="/form">
+              <Link href="/admin/form-create-event">
                 <MenuItem icon={<AddIcon />}>Crear Evento</MenuItem>
               </Link>
 
