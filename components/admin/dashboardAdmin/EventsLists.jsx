@@ -11,8 +11,8 @@ import {
 } from "@chakra-ui/react";
 import { EventCard } from "./EventCard";
 import Logo from "../../../assets/logoblackandwhite.svg";
-import { data } from "../../../api/events";
 import { useStatusEvents } from "../../../hooks/useStatusEvents";
+import { data } from "../../../api/events";
 
 export const EventsLists = ({ filterState }) => {
   const [eventsData, setEventsData] = useState();
@@ -29,15 +29,26 @@ export const EventsLists = ({ filterState }) => {
 
   return (
     <Box mt={10}>
-      {eventsData ? (
+      {data ? (
         <>
           {(filterState === "activos" || filterState === "todos") && (
             <Box>
-              <Heading as="h1" size="lg" color="green" mt={20}>
+              <Heading
+                color="green"
+                mt={{ base: 12, lg: 20 }}
+                as="h2"
+                size={{ base: "2xl", md: "lg" }}
+                textAlign={{ base: "center", md: "initial" }}
+              >
                 Activos
               </Heading>
-              <Box pt={10}>
-                <SimpleGrid columns={4} spacingY="50px" pt={10}>
+              <Box pt={{ base: 3, lg: 10 }} justifyContent="center">
+                <SimpleGrid
+                  columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+                  spacingY="50px"
+                  pt={10}
+                  justifyItems="center"
+                >
                   {eventsActive?.map((event) => (
                     <EventCard {...event} key={event.id} state={"false"} />
                   ))}
@@ -48,11 +59,22 @@ export const EventsLists = ({ filterState }) => {
 
           {(filterState === "finalizados" || filterState === "todos") && (
             <Box>
-              <Heading as="h1" size="lg" color="red" mt={20}>
+              <Heading
+                color="red"
+                mt={{ base: 12, lg: 20 }}
+                as="h2"
+                size={{ base: "2xl", md: "lg" }}
+                textAlign={{ base: "center", md: "initial" }}
+              >
                 Finalizados
               </Heading>
-              <Box pt={10}>
-                <SimpleGrid columns={4} spacingY="50px" pt={10}>
+              <Box pt={10} justifyContent="center">
+                <SimpleGrid
+                  columns={{ base: 1, md: 2, lg: 3, xl: 4 }}
+                  spacingY="50px"
+                  pt={10}
+                  justifyItems="center"
+                >
                   {eventsFinished?.map((event) => (
                     <EventCard {...event} key={event.id} />
                   ))}

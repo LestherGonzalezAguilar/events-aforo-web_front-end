@@ -14,6 +14,7 @@ const initialFormSearch = {
 export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
 
     const { inputSearch, inputDate, selectOrganizator, selectEventState, selectEventCategory, onInputChange } = useForm(initialFormSearch)
+    
     const onSubmit = (e) => {
         e.preventDefault()
 
