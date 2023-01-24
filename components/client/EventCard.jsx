@@ -9,7 +9,7 @@ export const EventCard = ({ event }) => {
     const minutes = new Date(event.hour).getMinutes()
 
     return (
-        <Card href='/details-event/12344123' maxW='sm' position='relative' mt={5} as={Link} style={{ textDecoration: 'none' }} _hover={{ transform: 'scale(1.02)' }} transition='all 0.25s ease-out'>
+        <Card href={`/details-event/${event.id}`} maxW='sm' position='relative' mt={5} as={Link} style={{ textDecoration: 'none' }} _hover={{ transform: 'scale(1.02)' }} transition='all 0.25s ease-out'>
             <Box size='sx' display='flex' justifyContent='flex-end' position='absolute' ml={5} bottom='calc(100% - 2%)'>
                 <Tag color='white' fontWeight='semibold' backgroundColor={event.category.color}>{event.category.name}</Tag>
             </Box>
