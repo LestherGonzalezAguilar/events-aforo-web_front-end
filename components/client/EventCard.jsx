@@ -2,12 +2,14 @@ import { Box, Button, Card, CardBody, CardFooter, Flex, Heading, Image, Stack, T
 import Link from "next/link"
 import { AiFillEye } from "react-icons/ai"
 import { StateEvent } from "./StateEvent"
+import { getDateES } from "./helpers/getDateES"
 
 export const EventCard = ({ event }) => {
 
     const hour = new Date(event.hour).getHours()
     const minutes = new Date(event.hour).getMinutes()
 
+    const dateES = getDateES(event.date)
     return (
         <Card href={`/details-event/${event.id}`} maxW='sm' position='relative' mt={5} as={Link} style={{ textDecoration: 'none' }} _hover={{ transform: 'scale(1.02)' }} transition='all 0.25s ease-out'>
             <Box size='sx' display='flex' justifyContent='flex-end' position='absolute' ml={5} bottom='calc(100% - 2%)'>
@@ -25,7 +27,7 @@ export const EventCard = ({ event }) => {
                         {event.description}
                     </Text>
                     <Text color='#4548EB' size='sx' fontWeight='semibold'>
-                        {event.date}
+                        {dateES}
                     </Text>
                     <Box size='sx' fontWeight='bold' display='flex' gap={1}>
                         <Text color='gray.800'>Hora:</Text>
