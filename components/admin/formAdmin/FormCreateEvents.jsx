@@ -3,6 +3,7 @@ import { useRouter } from "next/router";
 
 import {
   Box,
+  Button,
   Flex,
   Heading,
   Input,
@@ -145,16 +146,16 @@ export const FormCreateEvents = () => {
           )}
 
           <Flex justifyContent="center">
-            <Box mt={10}>
+            <Button backgroundColor="#4548EB" mt={10} p={0}>
               <Input
                 type="submit"
                 width={{ base: "200px", lg: "400px" }}
                 onSubmit={handleSubmit}
                 value="Publicar"
-                backgroundColor={"blue.600"}
                 color="white"
+                style={{cursor: "pointer"}}
               />
-            </Box>
+            </Button>
           </Flex>
         </Stack>
       </form>
