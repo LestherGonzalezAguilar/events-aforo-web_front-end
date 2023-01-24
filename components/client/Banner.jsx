@@ -52,7 +52,7 @@ export const Banner = () => {
             conciertos musicales, conferencias entre otros.
           </Text>
           <Flex gap={4} color="white" my={4}>
-            <Link style={{ width: "100%" }} href="/admin/form-create-event">
+            <Link style={{ width: "100%" }} href="/admin/create-event">
               <Button
                 width="100%"
                 backgroundColor="#4548EB"

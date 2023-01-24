@@ -49,6 +49,16 @@ export const InputCreateEvents = ({
           <option value="Moda y belleza">Moda y belleza</option>
           <option value="Tecnologías">Tecnologías</option>
         </Select>
+      ) : type === "password" ? (
+        <Input
+          name={inputName}
+          value={inputValue}
+          onChange={onInputChange}
+          size="sm"
+          type={type}
+          defaultValue={defaultValue}
+          fontSize="3xl"
+        />
       ) : type === "file" ? (
         <Box
           p={"3"}

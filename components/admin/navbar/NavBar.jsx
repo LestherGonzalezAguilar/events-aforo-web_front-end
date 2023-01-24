@@ -20,7 +20,6 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-// import { AiOutlineLogout } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 
 import { Logo } from "./Logo";
@@ -49,7 +48,7 @@ export const NavBar = () => {
                 Resumen
               </Text>
             </Link>
-            <Link href="/admin/form-create-event">
+            <Link href="/admin/create-event">
               <Text fontWeight="bold" pr={8}>
                 Crear Evento
               </Text>
@@ -67,7 +66,9 @@ export const NavBar = () => {
                   <Text color={"red"}>
                     <FiLogOut />
                   </Text>
-                  <Text ml={3}>Cerrar Sesión</Text>
+                  <Text ml={3}>
+                    <Link href={"/"}>Cerrar Sesión</Link>
+                  </Text>
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -99,7 +100,7 @@ export const NavBar = () => {
                 <MenuItem icon={<CalendarIcon />}>Resumen</MenuItem>
               </Link>
 
-              <Link href="/admin/form-create-event">
+              <Link href="/admin/create-event">
                 <MenuItem icon={<AddIcon />}>Crear Evento</MenuItem>
               </Link>
 
