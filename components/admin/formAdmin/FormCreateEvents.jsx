@@ -26,11 +26,35 @@ const initialForm = {
   category: "",
 };
 
-export const FormCreateEvents = () => {
-  const [iserror, setIserror] = useState();
+const formValidation = {
+  name: [
+    (value) => value.length > 2,
+    "El nombre debe de ser mayor a 2 caracteres.",
+  ],
+  description: [
+    (value) => value.length > 2,
+    "Agrega una description del evento",
+  ],
+  date: [(value) => value !== "", "Especifica la fecha del evento"],
+  hour: [(value) => value !== "", "Especifica el horario del evento"],
+  capacity: [(value) => value.length > 1, "Agrega la capacidad del evento"],
+  img: [(value) => value.length > 2, "Agrega una imagen del evento"],
+  category: [(value) => value !== "", "Elige una categoria para el evento"],
+};
 
+export const FormCreateEvents = () => {
   const toast = useToast();
   const router = useRouter();
+
+  const [isValidation, setIsValidation] = useState({
+    name: [value=> value],
+    description: [value=> value],
+    date: [value=> value],
+    hour: [value=> value],
+    capacity: [value=> value],
+    img: [value=> value],
+    category: [value=> value],
+  });
 
   const {
     inputImg,
@@ -43,11 +67,25 @@ export const FormCreateEvents = () => {
     formState,
     onInputChange,
     onResetForm,
-  } = useForm(initialForm);
+    isFormValid,
+    nameValid,
+    descriptionValid,
+    dateValid,
+    hourValid,
+    capacityValid,
+    imgValid,
+    categoryValid,
+  } = useForm(initialForm, isValidation);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // console.log(formState);
+    console.log(formState);
+    
+    setIsValidation(formValidation)
+    console.log(isValidation);
+    
+    if (!isFormValid) return;
+
     toast({
       title: "Evento Creado",
       description: "El evento ya fue agregado a nuestra base de datos",
@@ -75,7 +113,7 @@ export const FormCreateEvents = () => {
             inputValue={inputName}
             onInputChange={onInputChange}
             placeholder={"Nombre del evento"}
-            iserror={iserror}
+            iserror={nameValid}
           />
 
           <InputCreateEvents
@@ -84,8 +122,8 @@ export const FormCreateEvents = () => {
             inputValue={inputDescription}
             onInputChange={onInputChange}
             type="Textarea"
-            iserror={iserror}
             placeholder="Descripción del evento"
+            iserror={descriptionValid}
           />
 
           <InputCreateEvents
@@ -94,7 +132,7 @@ export const FormCreateEvents = () => {
             inputValue={inputDate}
             onInputChange={onInputChange}
             type="date"
-            iserror={iserror}
+            iserror={dateValid}
           />
 
           <InputCreateEvents
@@ -103,7 +141,7 @@ export const FormCreateEvents = () => {
             inputValue={inputHour}
             onInputChange={onInputChange}
             type="time"
-            iserror={iserror}
+            iserror={hourValid}
           />
 
           <InputCreateEvents
@@ -112,7 +150,7 @@ export const FormCreateEvents = () => {
             inputValue={inputCapacity}
             onInputChange={onInputChange}
             type="number"
-            iserror={iserror}
+            iserror={capacityValid}
           />
 
           <InputCreateEvents
@@ -121,7 +159,7 @@ export const FormCreateEvents = () => {
             inputValue={inputCategory}
             onInputChange={onInputChange}
             type="Select"
-            iserror={iserror}
+            iserror={categoryValid}
           />
 
           <InputCreateEvents
@@ -130,8 +168,8 @@ export const FormCreateEvents = () => {
             inputValue={inputImg}
             onInputChange={onInputChange}
             type="file"
-            iserror={iserror}
             placeholder="Nombre del evento"
+            iserror={imgValid}
           />
           {formState.img !== "" && (
             <Flex alignItems={"center"} justifyContent={"center"}>
@@ -153,7 +191,7 @@ export const FormCreateEvents = () => {
                 onSubmit={handleSubmit}
                 value="Publicar"
                 color="white"
-                style={{cursor: "pointer"}}
+                style={{ cursor: "pointer" }}
               />
             </Button>
           </Flex>

@@ -23,8 +23,8 @@ export const InputCreateEvents = ({
   iserror,
 }) => {
   return (
-    // <FormControl  isInvalid={iserror}>
-    <FormControl isRequired isInvalid={iserror}>
+    <FormControl isInvalid={iserror}>
+      {/* <FormControl isRequired isInvalid={iserror}> */}
       <FormLabel mb="10px">{label} </FormLabel>
 
       {type === "Textarea" ? (
@@ -105,7 +105,7 @@ export const InputCreateEvents = ({
       {!iserror ? (
         <FormHelperText></FormHelperText>
       ) : (
-        <FormErrorMessage>El {label} es requerido</FormErrorMessage>
+        <FormErrorMessage>{iserror}</FormErrorMessage>
       )}
     </FormControl>
   );
