@@ -9,13 +9,11 @@ import {
   Hide,
   Show,
   OrderedList,
-  ListItem,
-  GridItem,
   Flex,
-  ListIcon,
 } from "@chakra-ui/react";
-import { CheckCircleIcon, EmailIcon, StarIcon } from "@chakra-ui/icons";
-import { Attendee } from "./Attendee";
+
+import { AttendeeDesktop } from "./AttendeeDesktop";
+import { AttendeeMobile } from "./AttendeeMobile";
 
 export const AttendeesList = () => {
   return (
@@ -39,29 +37,14 @@ export const AttendeesList = () => {
                 <Th textAlign={"end"}>email</Th>
               </Tr>
             </Thead>
-            <Attendee />
+            <AttendeeDesktop />
           </Table>
         </TableContainer>
       </Hide>
 
       <Show below="md">
         <OrderedList my={5} px={8}>
-          <ListItem
-            borderBottomColor="gray.100"
-            borderBottomWidth={1}
-            borderBottomStyle="solid"
-            py={2}
-          >
-            <GridItem p={2}>
-              <ListIcon as={StarIcon} color="green.500" /> Lesther gonzalez
-            </GridItem>
-            <GridItem p={2}>
-              <ListIcon as={CheckCircleIcon} color="green.500" /> ASDBASD12ASDAS
-            </GridItem>
-            <GridItem p={2}>
-              <ListIcon as={EmailIcon} color="green.500" /> asdasd@gmail.com
-            </GridItem>
-          </ListItem>
+          <AttendeeMobile />
         </OrderedList>
       </Show>
     </Box>
