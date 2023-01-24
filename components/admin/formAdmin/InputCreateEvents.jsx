@@ -21,6 +21,7 @@ export const InputCreateEvents = ({
   type = "text",
   defaultValue = "",
   iserror,
+  errorText,
 }) => {
   return (
     <FormControl isInvalid={iserror}>
@@ -105,7 +106,7 @@ export const InputCreateEvents = ({
       {!iserror ? (
         <FormHelperText></FormHelperText>
       ) : (
-        <FormErrorMessage>{iserror}</FormErrorMessage>
+        <FormErrorMessage>{errorText}</FormErrorMessage>
       )}
     </FormControl>
   );

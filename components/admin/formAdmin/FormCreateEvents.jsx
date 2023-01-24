@@ -28,17 +28,17 @@ const initialForm = {
 
 const formValidation = {
   name: [
-    (value) => value.length > 2,
+    (value) => value.length.trim > 2,
     "El nombre debe de ser mayor a 2 caracteres.",
   ],
   description: [
-    (value) => value.length > 2,
+    (value) => value.length.trim > 2,
     "Agrega una description del evento",
   ],
   date: [(value) => value !== "", "Especifica la fecha del evento"],
   hour: [(value) => value !== "", "Especifica el horario del evento"],
   capacity: [(value) => value.length > 1, "Agrega la capacidad del evento"],
-  img: [(value) => value.length > 2, "Agrega una imagen del evento"],
+  img: [(value) => value.length.trim > 2, "Agrega una imagen del evento"],
   category: [(value) => value !== "", "Elige una categoria para el evento"],
 };
 
@@ -46,15 +46,7 @@ export const FormCreateEvents = () => {
   const toast = useToast();
   const router = useRouter();
 
-  const [isValidation, setIsValidation] = useState({
-    name: [value=> value],
-    description: [value=> value],
-    date: [value=> value],
-    hour: [value=> value],
-    capacity: [value=> value],
-    img: [value=> value],
-    category: [value=> value],
-  });
+  const [formSumitted, setFormSumitted] = useState(false);
 
   const {
     inputImg,
@@ -66,7 +58,6 @@ export const FormCreateEvents = () => {
     inputCategory,
     formState,
     onInputChange,
-    onResetForm,
     isFormValid,
     nameValid,
     descriptionValid,
@@ -75,15 +66,15 @@ export const FormCreateEvents = () => {
     capacityValid,
     imgValid,
     categoryValid,
-  } = useForm(initialForm, isValidation);
+  } = useForm(initialForm, formValidation);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formState);
-    
-    setIsValidation(formValidation)
-    console.log(isValidation);
-    
+
+    // console.log(formState);
+
+    setFormSumitted(true);
+
     if (!isFormValid) return;
 
     toast({
@@ -93,7 +84,6 @@ export const FormCreateEvents = () => {
       duration: 2000,
       isClosable: true,
     });
-    onResetForm();
     setTimeout(() => {
       router.push("/admin");
     }, 2200);
@@ -103,7 +93,7 @@ export const FormCreateEvents = () => {
     <Box maxWidth={"800px"} mx="auto" px="5" mb={20}>
       <form onSubmit={handleSubmit}>
         <Stack spacing="8" flexDirection="column">
-          <Heading textAlign="center" mt={20} mb={10}>
+          <Heading textAlign="center" mt={{ base: 10, lg: 20 }} mb={{ lg: 10 }}>
             Crea un nuevo evento
           </Heading>
 
@@ -113,7 +103,8 @@ export const FormCreateEvents = () => {
             inputValue={inputName}
             onInputChange={onInputChange}
             placeholder={"Nombre del evento"}
-            iserror={nameValid}
+            iserror={!!nameValid && formSumitted}
+            errorText={nameValid}
           />
 
           <InputCreateEvents
@@ -123,7 +114,8 @@ export const FormCreateEvents = () => {
             onInputChange={onInputChange}
             type="Textarea"
             placeholder="Descripción del evento"
-            iserror={descriptionValid}
+            iserror={!!descriptionValid && formSumitted}
+            errorText={descriptionValid}
           />
 
           <InputCreateEvents
@@ -132,7 +124,8 @@ export const FormCreateEvents = () => {
             inputValue={inputDate}
             onInputChange={onInputChange}
             type="date"
-            iserror={dateValid}
+            iserror={!!dateValid && formSumitted}
+            errorText={dateValid}
           />
 
           <InputCreateEvents
@@ -141,7 +134,8 @@ export const FormCreateEvents = () => {
             inputValue={inputHour}
             onInputChange={onInputChange}
             type="time"
-            iserror={hourValid}
+            iserror={!!hourValid && formSumitted}
+            errorText={hourValid}
           />
 
           <InputCreateEvents
@@ -150,7 +144,8 @@ export const FormCreateEvents = () => {
             inputValue={inputCapacity}
             onInputChange={onInputChange}
             type="number"
-            iserror={capacityValid}
+            iserror={!!capacityValid && formSumitted}
+            errorText={capacityValid}
           />
 
           <InputCreateEvents
@@ -159,7 +154,8 @@ export const FormCreateEvents = () => {
             inputValue={inputCategory}
             onInputChange={onInputChange}
             type="Select"
-            iserror={categoryValid}
+            iserror={!!categoryValid && formSumitted}
+            errorText={categoryValid}
           />
 
           <InputCreateEvents
@@ -169,22 +165,23 @@ export const FormCreateEvents = () => {
             onInputChange={onInputChange}
             type="file"
             placeholder="Nombre del evento"
-            iserror={imgValid}
+            iserror={!!imgValid && formSumitted}
+            errorText={imgValid}
           />
           {formState.img !== "" && (
             <Flex alignItems={"center"} justifyContent={"center"}>
-              <Box mb={1} mr={2}>
+              <Box mb={1} mr={2} >
                 <Text color={"green"} fontSize={"xl"}>
                   <BsFillCheckCircleFill />
                 </Text>
               </Box>
 
-              <Text textAlign={"center"}>{formState.img} </Text>
+              <Text textAlign={"center"} maxWidth={{base: "300px", lg: "800px"}}>{formState.img} </Text>
             </Flex>
           )}
 
           <Flex justifyContent="center">
-            <Button backgroundColor="#4548EB" mt={10} p={0}>
+            <Button backgroundColor="#4548EB" mt={{ lg: 5 }} p={0}>
               <Input
                 type="submit"
                 width={{ base: "200px", lg: "400px" }}
