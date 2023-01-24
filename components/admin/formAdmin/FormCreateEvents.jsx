@@ -1,17 +1,19 @@
+import { useState } from "react";
+import { useRouter } from "next/router";
+
 import {
   Box,
-  Button,
   Flex,
   Heading,
   Input,
-  Select,
   Stack,
   Text,
-  Textarea,
   useToast,
 } from "@chakra-ui/react";
-import React from "react";
+import { BsFillCheckCircleFill } from "react-icons/bs";
+
 import { useForm } from "../../../hooks/useForm";
+import { InputCreateEvents } from "./InputCreateEvents";
 
 const initialForm = {
   name: "",
@@ -24,137 +26,134 @@ const initialForm = {
 };
 
 export const FormCreateEvents = () => {
+  const [iserror, setIserror] = useState();
+
   const toast = useToast();
+  const router = useRouter();
 
   const {
     inputImg,
     inputName,
     inputHour,
-    inputCapacity,
     inputDate,
+    inputCapacity,
     inputDescription,
     inputCategory,
-    onInputChange,
     formState,
+    onInputChange,
     onResetForm,
   } = useForm(initialForm);
 
-  const handleSubmit = () => {
-    console.log(formState);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // console.log(formState);
+    toast({
+      title: "Evento Creado",
+      description: "El evento ya fue agregado a nuestra base de datos",
+      status: "success",
+      duration: 2000,
+      isClosable: true,
+    });
     onResetForm();
+    setTimeout(() => {
+      router.push("/admin");
+    }, 2200);
   };
 
   return (
     <Box maxWidth={"800px"} mx="auto" px="5" mb={20}>
       <form onSubmit={handleSubmit}>
-        <Stack spacing="15" flexDirection="column">
+        <Stack spacing="8" flexDirection="column">
           <Heading textAlign="center" mt={20} mb={10}>
             Crea un nuevo evento
           </Heading>
 
-          <Box>
-            <Text mb="10px">Nombre del evento: </Text>
-            <Input
-              name="name"
-              value={inputName}
-              onChange={onInputChange}
-              placeholder="Nombre del evento"
-              size="sm"
-              required
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Nombre del evento:"}
+            inputName={"name"}
+            inputValue={inputName}
+            onInputChange={onInputChange}
+            placeholder={"Nombre del evento"}
+            iserror={iserror}
+          />
 
-          <Box>
-            <Text mb="8px">Descripción</Text>
-            <Textarea
-              name="description"
-              value={inputDescription}
-              onChange={onInputChange}
-              placeholder="Descripción del evento"
-              size="sm"
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Descripción"}
+            inputName={"description"}
+            inputValue={inputDescription}
+            onInputChange={onInputChange}
+            type="Textarea"
+            iserror={iserror}
+            placeholder="Descripción del evento"
+          />
 
-          <Box>
-            <Text mb="10px">Fecha de inicio</Text>
-            <Input
-              name="date"
-              value={inputDate}
-              onChange={onInputChange}
-              type="date"
-              placeholder="Nombre del evento"
-              size="sm"
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Fecha de inicio"}
+            inputName={"date"}
+            inputValue={inputDate}
+            onInputChange={onInputChange}
+            type="date"
+            iserror={iserror}
+          />
 
-          <Box>
-            <Text mb="10px">Hora</Text>
-            <Input
-              name="hour"
-              value={inputHour}
-              onChange={onInputChange}
-              type="time"
-              placeholder="Nombre del evento"
-              size="sm"
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Horario"}
+            inputName={"hour"}
+            inputValue={inputHour}
+            onInputChange={onInputChange}
+            type="time"
+            iserror={iserror}
+          />
 
-          <Box>
-            <Text mb="10px">Capacidad </Text>
-            <Input
-              name="capacity"
-              value={inputCapacity}
-              defaultValue={0}
-              onChange={onInputChange}
-              type="number"
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Capacidad"}
+            inputName={"capacity"}
+            inputValue={inputCapacity}
+            onInputChange={onInputChange}
+            type="number"
+            iserror={iserror}
+          />
 
-          <Box>
-            <Text mb="10px">Categorias</Text>
-            <Select
-              name="category"
-              value={inputCategory}
-              onChange={onInputChange}
-            >
-              <option value="Concierto musical">Concierto musical</option>
-              <option value="Conferencia">Conferencia</option>
-              <option value="Moda y belleza">Moda y belleza</option>
-              <option value="Tecnologías">Tecnologías</option>
-            </Select>
-          </Box>
+          <InputCreateEvents
+            label={"Categorias"}
+            inputName={"category"}
+            inputValue={inputCategory}
+            onInputChange={onInputChange}
+            type="Select"
+            iserror={iserror}
+          />
 
-          <Box>
-            <Text mb="10px">Cargar imagen del evento</Text>
-            <Input
-              name="img"
-              value={inputImg}
-              onChange={onInputChange}
-              placeholder="Nombre del evento"
-              size="sm"
-              type="file"
-            />
-          </Box>
+          <InputCreateEvents
+            label={"Cargar imagen del evento"}
+            inputName={"img"}
+            inputValue={inputImg}
+            onInputChange={onInputChange}
+            type="file"
+            iserror={iserror}
+            placeholder="Nombre del evento"
+          />
+          {formState.img !== "" && (
+            <Flex alignItems={"center"} justifyContent={"center"}>
+              <Box mb={1} mr={2}>
+                <Text color={"green"} fontSize={"xl"}>
+                  <BsFillCheckCircleFill />
+                </Text>
+              </Box>
+
+              <Text textAlign={"center"}>{formState.img} </Text>
+            </Flex>
+          )}
 
           <Flex justifyContent="center">
             <Box mt={10}>
-              <Button
+              <Input
+                type="submit"
                 width={{ base: "200px", lg: "400px" }}
-                colorScheme="blue"
-                onClick={() => {
-                  handleSubmit();
-                  toast({
-                    title: "Evento Creado",
-                    description:
-                      "El evento ya fue agregado a nuestra base de datos",
-                    status: "success",
-                    duration: 3000,
-                    isClosable: true,
-                  });
-                }}
-              >
-                Publicar
-              </Button>
+                onSubmit={handleSubmit}
+                value="Publicar"
+                backgroundColor={"blue.600"}
+                color="white"
+              />
             </Box>
           </Flex>
         </Stack>
