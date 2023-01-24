@@ -12,9 +12,7 @@ const dataRoot = { main: 'Detalle del evento', root: [{ url: '/', title: 'Inicio
  * @type {Function}
  * @returns {React.ReactElement} Props Content Home Page
  */
-export default function DetailsEvent({ eventById }) {
-
-    const [event, setEvent] = useState(eventById)
+export default function DetailsEvent({ eventById: event }) {
 
     return (
         <PageLayout>
@@ -45,14 +43,14 @@ export default function DetailsEvent({ eventById }) {
                             <Text>Lugar indeterminado</Text>
                         </Flex>
                     </Box>
-                    <Box display='flex' flexDirection='column' gap={4} justifyContent='flex-end'>
+                    <Box display='flex' flexDirection='column' gap={4} alignItems={{ base: 'flex-start', md: 'flex-end', lg:'flex-end' }}>
                         {/* Tag categoria del evento */}
                         <Flex gap={1} justifyContent='flex-end'>
                             <Text fontWeight='semibold'>Categoria:</Text>
                             {/* <Tag color='white' fontWeight='semibold' backgroundColor={category.color}>{category.name}</Tag> */}
                             <Tag color='white' fontWeight='semibold' backgroundColor={event.category.color}>{event.category.name}</Tag>
                         </Flex>
-                        <Button width='max-content' fontSize={24} px={8} py={6} as='a' href={`/subscribe-event/${event.id}`} color='white' _hover={{ backgroundColor: 'gray.600' }} backgroundColor='gray.800'>Inscribirse</Button>
+                        <Button width='max-content' mb={2} fontSize={24} px={8} py={6} as='a' href={`/subscribe-event/${event.id}`} color='white' _hover={{ backgroundColor: 'gray.600' }} backgroundColor='gray.800'>Inscribirse</Button>
                     </Box>
                 </Flex>
                 <Box width='95%' margin='auto'>
