@@ -110,9 +110,9 @@ export const FormCreateEvents = () => {
       duration: 2000,
       isClosable: true,
     });
-    // setTimeout(() => {
-    //   router.push("/admin");
-    // }, 2200);
+    setTimeout(() => {
+      router.push("/admin");
+    }, 2200);
   };
 
   return (

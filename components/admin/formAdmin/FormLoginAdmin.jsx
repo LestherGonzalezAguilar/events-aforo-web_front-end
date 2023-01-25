@@ -23,7 +23,7 @@ const initialForm = {
 
 const formValidation = {
   email: [(value) => value.includes("@"), "Correo no válido"],
-  password: [(value) => (value.length > 2, "Ingrese su contraseña")],
+  password: [(value) => value.length > 2, "Ingrese su contraseña"],
 };
 
 export const FormLoginAdmin = () => {
@@ -39,16 +39,18 @@ export const FormLoginAdmin = () => {
     isFormValid,
     emailValid,
     passwordValid,
+    onResetForm,
   } = useForm(initialForm, formValidation);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    setFormSumitted(true);
+    if (!isFormValid) return;
+
     console.log(formState);
 
-    setFormSumitted(true);
-
-    if (!isFormValid) return;
+    // onResetForm();
 
     setTimeout(() => {
       router.push("/admin");
@@ -86,6 +88,7 @@ export const FormLoginAdmin = () => {
             placeholder={"adress@gmail.com"}
             iserror={!!emailValid && formSumitted}
             errorText={emailValid}
+            autoComplete={"none"}
           />
 
           <InputCreateEvents
