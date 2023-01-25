@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 import {
   Box,
@@ -14,10 +13,15 @@ import {
 import { EditIcon } from "@chakra-ui/icons";
 import { AttendeesList } from "./AttendeesList";
 import { data } from "../../../api/events";
+import Head from "next/head";
 
 export const DetailsEvent = () => {
   return (
     <div>
+      <Head>
+        <title>Aforify | Evento: </title>
+        <meta name="description" content="Evento" />
+      </Head>
       <Box>
         <Box ratio={16 / 9} objectFit={"cover"} background={"black"}>
           <Image
@@ -38,7 +42,10 @@ export const DetailsEvent = () => {
           </Button>
         </Flex>
 
-        <Flex px={{ base: 8, lg: 20 }} flexDirection={{base: "column", md: "row"}}>
+        <Flex
+          px={{ base: 8, lg: 20 }}
+          flexDirection={{ base: "column", md: "row" }}
+        >
           <Box>
             <Heading as="h1" size="2xl">
               Nombre del evento
