@@ -22,15 +22,15 @@ import {
 
 import { FiLogOut } from "react-icons/fi";
 
-import { Logo } from "./Logo";
+import { Logo } from "../../client/Logo";
 
 export const NavBar = () => {
   return (
     <Box as="nav" boxShadow="md" backgroundColor={"gray.200"}>
       <Flex
-        px={20}
-        style={{ padding: "1em 0" }}
-        width="90%"
+        px={0}
+        py={3}
+        width={{ base: "90%", md: "80%", lg: "70%" }}
         maxWidth="1680px"
         margin="auto"
         justifyContent="flex-start"
