@@ -5,9 +5,9 @@ import { data } from "../../../api/events";
 import { useStatusEvents } from "../../../hooks/useStatusEvents";
 
 export const StatusEvents = () => {
-  const [eventsData, setEventsData] = useState();
+  const [eventsData, setEventsData] = useState([]);
   const [eventsActive, eventsFinished] = useStatusEvents(eventsData);
-
+  
   useEffect(() => {
     handleData();
   });

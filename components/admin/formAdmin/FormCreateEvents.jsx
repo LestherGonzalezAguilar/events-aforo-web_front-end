@@ -77,7 +77,8 @@ export const FormCreateEvents = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const { date, hour, img, name, description, category, capacity, place } = formState;
+    const { date, hour, img, name, description, category, capacity, place } =
+      formState;
 
     const date_time = Date.parse(`${date} ${hour}:00 GMT-3`);
 
@@ -168,6 +169,7 @@ export const FormCreateEvents = () => {
             inputName={"capacity"}
             inputValue={inputCapacity}
             onInputChange={onInputChange}
+            placeholder={"0"}
             type="number"
             iserror={!!capacityValid && formSumitted}
             errorText={capacityValid}
