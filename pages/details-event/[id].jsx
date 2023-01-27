@@ -1,6 +1,9 @@
-import { Box, Button, Flex, Image, Tag, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Tag, Text } from "@chakra-ui/react";
+import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { BreadCrumb } from "../../components/client/BreadCrumb";
+import { StateEvent } from "../../components/client/StateEvent";
 import { getDateES } from "../../components/client/helpers/getDateES";
 import { PageLayout } from "../../components/client/layouts/PageLayout";
 import { eventsData } from "../../data/eventsClient";
@@ -23,11 +26,18 @@ export default function DetailsEvent({ eventById: event }) {
                 <br />
                 <BreadCrumb dataRoot={dataRoot} />
 
-                <Image my={4} objectPosition='center center' width='100%' height={{ base: '280px', md: '320px', lg: '380px', xl:'560px' }} objectFit='cover'
-                    src={event.img} alt={event.name} />
+                {/* <Image my={4} objectPosition='center center' width='100%' height={{ base: '280px', md: '320px', lg: '380px', xl: '560px' }} objectFit='cover'
+                    src={event.img} alt={event.name} /> */}
+                <Box my={4} height={{ base: '280px', md: '320px', lg: '380px', xl: '560px' }}>
+                    <Image
+                        src={event.img} alt={event.name}
+                        width={1024} height={575}
+                        style={{ width: '100%', maxHeight: '100%', objectPosition: 'center', objectFit: 'cover' }}
+                    />
+                </Box>
 
                 <Flex flexDirection={{ base: 'column', md: 'row', lg: 'row' }} rowGap={4} width='95%' margin='auto' alignItems={{ base: 'flex-start', md: 'center', lg: 'center' }} justifyContent={{ base: 'flex-start', md: 'space-between', lg: 'space-between' }}>
-                    <Box display='grid' rowGap={2} color='gray.800' mb={4}>
+                    <Box display='grid' rowGap={2} color='gray.800' mb={{ base: 1, md: 4, lg: 4 }}>
                         <Text as='h1' fontSize={36} fontWeight='bold'>{event.name}</Text>
                         <Text as='span' fontWeight='semibold' color='#4548EB'>{dateES}</Text>
                         {/* Hora de evento */}
@@ -48,12 +58,16 @@ export default function DetailsEvent({ eventById: event }) {
                     </Box>
                     <Box display='flex' flexDirection='column' gap={4} alignItems={{ base: 'flex-start', md: 'flex-end', lg: 'flex-end' }}>
                         {/* Tag categoria del evento */}
-                        <Flex gap={2} justifyContent='flex-end'>
+                        <Flex gap={2} justifyContent='flex-end' fontSize={18}>
                             <Text fontWeight='semibold'>Categoria:</Text>
                             {/* <Tag color='white' fontWeight='semibold' backgroundColor={category.color}>{category.name}</Tag> */}
                             <Tag color='white' fontWeight='semibold' backgroundColor={event.category.color}>{event.category.name}</Tag>
+                            <StateEvent {...event} />
                         </Flex>
-                        <Button width='max-content' mb={2} fontSize={24} px={8} py={6} as='a' href={`/subscribe-event/${event.id}`} color='white' _hover={{ backgroundColor: 'orange.500' }} backgroundColor='orange.400'>Inscribirse</Button>
+                        {
+                            (event.state !== "Finalizados" && event.state !== "Sin cupos") &&
+                            <Button width='max-content' mb={2} fontSize={24} px={8} py={6} as={Link} href={`/details-event/subscribe/${event.id}`} color='white' _hover={{ backgroundColor: 'orange.500' }} backgroundColor='orange.400'>Inscribirse</Button>
+                        }
                     </Box>
                 </Flex>
                 <Box width='95%' margin='auto' mb={10}>

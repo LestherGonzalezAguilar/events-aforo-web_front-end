@@ -68,7 +68,7 @@ export const eventsData = [
         hour: new Date().getTime(),
         capacity: 150,
         total_attendees: 15,
-        img: 'https://datos.gob.es/sites/default/files/styles/event_image/public/event/image/05-post.jpg?itok=ctLfKzbC',
+        img: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1412&q=80',
         category: {
             id: 'aaaweqe121rqef',
             name: 'Tecnologías',

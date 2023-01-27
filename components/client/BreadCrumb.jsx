@@ -1,4 +1,4 @@
-import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, Text } from "@chakra-ui/react"
+import { Breadcrumb, BreadcrumbItem, Text } from "@chakra-ui/react"
 import Link from "next/link"
 
 // const dataRoot = { main: 'Carta', root: [{ url: '/home', title: 'Inicio' }] } //*Example

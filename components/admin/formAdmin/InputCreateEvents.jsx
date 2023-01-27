@@ -19,14 +19,13 @@ export const InputCreateEvents = ({
   onInputChange,
   placeholder = "",
   type = "text",
-  defaultValue = "",
   iserror,
   errorText,
 }) => {
   return (
     <FormControl isInvalid={iserror}>
       {/* <FormControl isRequired isInvalid={iserror}> */}
-      <FormLabel mb="10px">{label} </FormLabel>
+      <FormLabel mb="10px" fontWeight='semibold'>{label} </FormLabel>
 
       {type === "Textarea" ? (
         <Textarea
@@ -99,7 +98,6 @@ export const InputCreateEvents = ({
           placeholder={placeholder}
           size="sm"
           type={type}
-          defaultValue={defaultValue}
         />
       )}
 

@@ -15,16 +15,20 @@ export const NavBar = () => {
                             <Text fontWeight='bold' textDecoration='underline'>Inicio</Text>
                         </Link>
                         <Text fontWeight='semibold'>-</Text>
-                        <Link href='/admin'>
+                        <Box>
                             <Flex gap={3} fontWeight='semibold' color='gray.800'>
-                                <Text fontSize="lg" color='blue.400'>
+                                <Text as={Link} href='/admin/login' mr={2} fontSize="lg" color='blue.400' _hover={{ textDecoration: 'underline' }}>
                                     ¿Eres organizador de evento
                                 </Text>
-                                <Text fontSize="lg">
-                                    Iniciar sesión / Registrarse
+                                <Text as={Link} href='/admin/login' fontSize="lg" _hover={{ textDecoration: 'underline', color: 'green.500' }}>
+                                    Iniciar sesión
+                                </Text>
+                                <span>/</span>
+                                <Text as={Link} href='/admin/register' fontSize="lg" _hover={{ textDecoration: 'underline', color: 'orange.400' }}>
+                                    Registrarse
                                 </Text>
                             </Flex>
-                        </Link>
+                        </Box>
                     </Flex>
                 </Show>
 
