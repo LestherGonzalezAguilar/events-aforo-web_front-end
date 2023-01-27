@@ -1,19 +1,19 @@
 import Head from "next/head";
-import { FormLoginAdmin } from "../../../components/admin/formAdmin/FormLoginAdmin";
+import { FormRegisterAdmin } from "../../../components/admin/formAdmin/FormRegisterAdmin";
 import { Layout } from "../../../components/admin/Layout";
 
 const index = () => {
   return (
     <>
       <Head>
-        <title>Aforify | Login </title>
+        <title>Aforify | Registro </title>
         <meta
           name="description"
           content="Inicia sesion para poder crear y gestionar eventos"
         />
       </Head>
       <Layout>
-        <FormLoginAdmin />
+        <FormRegisterAdmin />
       </Layout>
     </>
   );

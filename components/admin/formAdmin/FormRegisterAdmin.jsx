@@ -19,14 +19,16 @@ import { InputsLayouts } from "./InputsLayouts.jsx";
 const initialForm = {
   email: "",
   password: "",
+  name: "",
 };
 
 const formValidation = {
   email: [(value) => value.includes("@"), "Correo no válido"],
   password: [(value) => value.length > 2, "Ingrese su contraseña"],
+  name: [(value) => value.length > 2, "Ingrese un nombre de usuario"],
 };
 
-export const FormLoginAdmin = () => {
+export const FormRegisterAdmin = () => {
   const router = useRouter();
 
   const [formSumitted, setFormSumitted] = useState(false);
@@ -34,10 +36,12 @@ export const FormLoginAdmin = () => {
   const {
     inputEmail,
     inputpassword,
+    inputName,
     formState,
     onInputChange,
     isFormValid,
     emailValid,
+    nameValid,
     passwordValid,
     onResetForm,
   } = useForm(initialForm, formValidation);
@@ -49,8 +53,6 @@ export const FormLoginAdmin = () => {
     if (!isFormValid) return;
 
     console.log(formState);
-
-    // onResetForm();
 
     setTimeout(() => {
       router.push("/admin");
@@ -81,6 +83,17 @@ export const FormLoginAdmin = () => {
           </Box>
 
           <InputsLayouts
+            label={"Name"}
+            inputName={"name"}
+            inputValue={inputName}
+            onInputChange={onInputChange}
+            placeholder={"Agregue el nombre de usuario que desee"}
+            iserror={!!nameValid && formSumitted}
+            errorText={nameValid}
+            autoComplete={"none"}
+          />
+
+          <InputsLayouts
             label={"Email"}
             inputName={"email"}
             inputValue={inputEmail}
@@ -108,7 +121,7 @@ export const FormLoginAdmin = () => {
                 type="submit"
                 width={{ base: "200px", lg: "400px" }}
                 onSubmit={handleSubmit}
-                value="Iniciar Sesión"
+                value="Registrarme"
                 color="white"
                 style={{ cursor: "pointer" }}
               />

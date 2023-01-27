@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import moment from "moment/moment";
 
 import {
   Box,
@@ -15,7 +14,7 @@ import {
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { useForm } from "../../../hooks/useForm";
-import { InputCreateEvents } from "./InputCreateEvents";
+import { InputsLayouts } from "./InputsLayouts.jsx";
 
 const initialForm = {
   name: "",
@@ -123,7 +122,7 @@ export const FormCreateEvents = () => {
             Crea un nuevo evento
           </Heading>
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Nombre del evento:"}
             inputName={"name"}
             inputValue={inputName}
@@ -133,7 +132,7 @@ export const FormCreateEvents = () => {
             errorText={nameValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Descripción"}
             inputName={"description"}
             inputValue={inputDescription}
@@ -144,7 +143,7 @@ export const FormCreateEvents = () => {
             errorText={descriptionValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Fecha de inicio"}
             inputName={"date"}
             inputValue={inputDate}
@@ -154,7 +153,7 @@ export const FormCreateEvents = () => {
             errorText={dateValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Horario"}
             inputName={"hour"}
             inputValue={inputHour}
@@ -164,7 +163,7 @@ export const FormCreateEvents = () => {
             errorText={hourValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Capacidad"}
             inputName={"capacity"}
             inputValue={inputCapacity}
@@ -175,7 +174,7 @@ export const FormCreateEvents = () => {
             errorText={capacityValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Categorias"}
             inputName={"category"}
             inputValue={inputCategory}
@@ -185,7 +184,7 @@ export const FormCreateEvents = () => {
             errorText={categoryValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Lugar"}
             inputName={"place"}
             inputValue={inputPlace}
@@ -195,7 +194,7 @@ export const FormCreateEvents = () => {
             errorText={placeValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Cargar imagen del evento"}
             inputName={"img"}
             inputValue={inputImg}

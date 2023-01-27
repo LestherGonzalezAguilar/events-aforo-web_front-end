@@ -1,8 +1,6 @@
-import { Box } from "@chakra-ui/react";
 import Head from "next/head";
 import { FormCreateEvents } from "../../../components/admin/formAdmin/FormCreateEvents";
 import { Layout } from "../../../components/admin/Layout";
-import { NavBar } from "../../../components/admin/navbar/NavBar";
 
 const index = () => {
   return (

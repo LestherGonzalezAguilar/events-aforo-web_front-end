@@ -1,4 +1,3 @@
-import { Box } from "@chakra-ui/react";
 import { DetailsEvent } from "../../../components/admin/eventView/DetailsEvent";
 import { Layout } from "../../../components/admin/Layout";
 
