@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { FormLoginAdmin } from "../../../components/admin/formAdmin/FormLoginAdmin";
-import { Layout } from "../../../components/admin/Layout";
+import { NavBar } from "../../../components/client";
 
 const index = () => {
   return (
@@ -12,9 +12,8 @@ const index = () => {
           content="Inicia sesion para poder crear y gestionar eventos"
         />
       </Head>
-      <Layout>
-        <FormLoginAdmin />
-      </Layout>
+      <NavBar />
+      <FormLoginAdmin />
     </>
   );
 };
