@@ -14,7 +14,7 @@ import {
 import { BsFillCheckCircleFill } from "react-icons/bs";
 
 import { useForm } from "../../../hooks/useForm";
-import { InputCreateEvents } from "./InputCreateEvents";
+import { InputsLayouts } from "./InputsLayouts.jsx";
 
 const initialForm = {
   name: "",
@@ -24,21 +24,23 @@ const initialForm = {
   capacity: "",
   img: "",
   category: "",
+  place: "",
 };
 
 const formValidation = {
   name: [
-    (value) => value.length.trim > 2,
+    (value) => value.length > 2,
     "El nombre debe de ser mayor a 2 caracteres.",
   ],
   description: [
-    (value) => value.length.trim > 2,
+    (value) => value.length > 2,
     "Agrega una description del evento",
   ],
   date: [(value) => value !== "", "Especifica la fecha del evento"],
   hour: [(value) => value !== "", "Especifica el horario del evento"],
   capacity: [(value) => value.length > 1, "Agrega la capacidad del evento"],
-  img: [(value) => value.length.trim > 2, "Agrega una imagen del evento"],
+  img: [(value) => value.length > 2, "Agrega una imagen del evento"],
+  place: [(value) => value.length > 2, "Agregue la dirección del lugar"],
   category: [(value) => value !== "", "Elige una categoria para el evento"],
 };
 
@@ -50,6 +52,7 @@ export const FormCreateEvents = () => {
 
   const {
     inputImg,
+    inputPlace,
     inputName,
     inputHour,
     inputDate,
@@ -58,8 +61,10 @@ export const FormCreateEvents = () => {
     inputCategory,
     formState,
     onInputChange,
+    onResetForm,
     isFormValid,
     nameValid,
+    placeValid,
     descriptionValid,
     dateValid,
     hourValid,
@@ -71,11 +76,31 @@ export const FormCreateEvents = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
+    const { date, hour, img, name, description, category, capacity, place } =
+      formState;
+
+    const date_time = Date.parse(`${date} ${hour}:00 GMT-3`);
+
+    const newFormState = {
+      img,
+      name,
+      place,
+      description,
+      category,
+      capacity,
+      date_time,
+    };
+
     // console.log(formState);
+    // console.log(date,hour);
+    // console.log(date_time);
+    // console.log(moment(date_time).locale("es").format('LLLL'));
 
     setFormSumitted(true);
 
     if (!isFormValid) return;
+
+    console.log(newFormState);
 
     toast({
       title: "Evento Creado",
@@ -97,7 +122,7 @@ export const FormCreateEvents = () => {
             Crea un nuevo evento
           </Heading>
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Nombre del evento:"}
             inputName={"name"}
             inputValue={inputName}
@@ -107,7 +132,7 @@ export const FormCreateEvents = () => {
             errorText={nameValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Descripción"}
             inputName={"description"}
             inputValue={inputDescription}
@@ -118,7 +143,7 @@ export const FormCreateEvents = () => {
             errorText={descriptionValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Fecha de inicio"}
             inputName={"date"}
             inputValue={inputDate}
@@ -128,7 +153,7 @@ export const FormCreateEvents = () => {
             errorText={dateValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Horario"}
             inputName={"hour"}
             inputValue={inputHour}
@@ -138,17 +163,18 @@ export const FormCreateEvents = () => {
             errorText={hourValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Capacidad"}
             inputName={"capacity"}
             inputValue={inputCapacity}
             onInputChange={onInputChange}
+            placeholder={"0"}
             type="number"
             iserror={!!capacityValid && formSumitted}
             errorText={capacityValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
             label={"Categorias"}
             inputName={"category"}
             inputValue={inputCategory}
@@ -158,7 +184,17 @@ export const FormCreateEvents = () => {
             errorText={categoryValid}
           />
 
-          <InputCreateEvents
+          <InputsLayouts
+            label={"Lugar"}
+            inputName={"place"}
+            inputValue={inputPlace}
+            onInputChange={onInputChange}
+            iserror={!!placeValid && formSumitted}
+            placeholder={"Ludar y dirección del evento"}
+            errorText={placeValid}
+          />
+
+          <InputsLayouts
             label={"Cargar imagen del evento"}
             inputName={"img"}
             inputValue={inputImg}
@@ -170,13 +206,18 @@ export const FormCreateEvents = () => {
           />
           {formState.img !== "" && (
             <Flex alignItems={"center"} justifyContent={"center"}>
-              <Box mb={1} mr={2} >
+              <Box mb={1} mr={2}>
                 <Text color={"green"} fontSize={"xl"}>
                   <BsFillCheckCircleFill />
                 </Text>
               </Box>
 
-              <Text textAlign={"center"} maxWidth={{base: "300px", lg: "800px"}}>{formState.img} </Text>
+              <Text
+                textAlign={"center"}
+                maxWidth={{ base: "300px", lg: "800px" }}
+              >
+                {formState.img}{" "}
+              </Text>
             </Flex>
           )}
 

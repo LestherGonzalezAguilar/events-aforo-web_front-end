@@ -20,18 +20,17 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-// import { AiOutlineLogout } from "react-icons/ai";
 import { FiLogOut } from "react-icons/fi";
 
-import { Logo } from "./Logo";
+import { Logo } from "../../client/Logo";
 
 export const NavBar = () => {
   return (
     <Box as="nav" boxShadow="md" backgroundColor={"gray.200"}>
       <Flex
-        px={20}
-        style={{ padding: "1em 0" }}
-        width="90%"
+        px={0}
+        py={3}
+        width={{ base: "90%", md: "80%", lg: "70%" }}
         maxWidth="1680px"
         margin="auto"
         justifyContent="flex-start"
@@ -45,18 +44,28 @@ export const NavBar = () => {
           <Spacer />
           <Flex gap={3} alignItems="center" color="gray.800">
             <Link href="/admin">
-              <Text fontWeight="bold" pr={8}>
+              <Text
+                fontWeight="bold"
+                pr={8}
+                fontSize="lg"
+                _hover={{ textDecoration: "underline", color: "#4548EB" }}
+              >
                 Resumen
               </Text>
             </Link>
-            <Link href="/admin/form">
-              <Text fontWeight="bold" pr={8}>
+            <Link href="/admin/create-event">
+              <Text
+                fontWeight="bold"
+                pr={8}
+                fontSize="lg"
+                _hover={{ textDecoration: "underline", color: "#4548EB" }}
+              >
                 Crear Evento
               </Text>
             </Link>
             <Menu pr={20}>
               <MenuButton
-                color="blue"
+                color="#4548EB"
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
               >
@@ -67,7 +76,9 @@ export const NavBar = () => {
                   <Text color={"red"}>
                     <FiLogOut />
                   </Text>
-                  <Text ml={3}>Cerrar Sesión</Text>
+                  <Text ml={3}>
+                    <Link href={"/"}>Cerrar Sesión</Link>
+                  </Text>
                 </MenuItem>
               </MenuList>
             </Menu>
@@ -99,7 +110,7 @@ export const NavBar = () => {
                 <MenuItem icon={<CalendarIcon />}>Resumen</MenuItem>
               </Link>
 
-              <Link href="/form">
+              <Link href="/admin/create-event">
                 <MenuItem icon={<AddIcon />}>Crear Evento</MenuItem>
               </Link>
 

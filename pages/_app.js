@@ -1,5 +1,6 @@
-import { ChakraProvider } from "@chakra-ui/react"
-import '../styles/globals.css'
+import { ChakraProvider } from "@chakra-ui/react";
+import Head from "next/head";
+import "../styles/globals.css";
 
 /**
  * initialize page
@@ -8,10 +9,18 @@ import '../styles/globals.css'
  */
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
-  )
+    <>
+      <Head>
+        <title>Aforify</title>
+        <link rel="icon" href="/favicon.svg" />
+        <meta name="description" content="Todos los eventos disponibles" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
+      <ChakraProvider>
+        <Component {...pageProps} />
+      </ChakraProvider>
+    </>
+  );
 }
 
-export default MyApp
+export default MyApp;

@@ -1,14 +1,17 @@
-import { Box } from "@chakra-ui/react";
+import Head from "next/head";
 import { DashboardAdmin } from "../../components/admin/dashboardAdmin/DashboardAdmin";
-import { NavBar } from "../../components/admin/navBar/NavBar";
+import { Layout } from "../../components/admin/Layout";
 
 const index = () => {
   return (
     <>
-      <Box>
-        <NavBar />
+      <Head>
+        <title>Aforify | Admin</title>
+        <meta name="description" content="Dashboard, panel del organizador" />
+      </Head>
+      <Layout>
         <DashboardAdmin />
-      </Box>
+      </Layout>
     </>
   );
 };

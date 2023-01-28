@@ -1,4 +1,4 @@
-import { Box, Text } from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Banner, FilterEvents } from "../components/client";
 import { EventCard } from "../components/client/EventCard";
@@ -22,7 +22,7 @@ export default function HomePage() {
 
   return (
     <PageLayout>
-      <Box maxWidth='1680px' margin='auto' width={{ base: '90%', md: '80%', lg: '70%' }} justifyContent='center' alignItems='center' gap={4}>
+       <Box maxWidth='1680px' margin='auto' width={{ base: '90%', md: '80%', lg: '70%' }} justifyContent='center' alignItems='center' gap={10} as={Grid}>
         <Banner />
         <FilterEvents onSubmitSearch={onSubmitSearch} events={events} />
 

@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import { FaUpload } from "react-icons/fa";
 
-export const InputCreateEvents = ({
+export const InputsLayouts = ({
   label,
   inputName,
   inputValue,
@@ -33,7 +33,7 @@ export const InputCreateEvents = ({
           value={inputValue}
           onChange={onInputChange}
           placeholder={placeholder}
-          size="sm"
+          size={{ base: "sm", lg: "md" }}
         />
       ) : type === "Select" ? (
         <Select
@@ -41,6 +41,7 @@ export const InputCreateEvents = ({
           value={inputValue}
           onChange={onInputChange}
           defaultValue={null}
+          size={{ base: "sm", lg: "md" }}
         >
           <option value="">Elige una categoria</option>
           <option value="Concierto musical">Concierto musical</option>
@@ -48,6 +49,15 @@ export const InputCreateEvents = ({
           <option value="Moda y belleza">Moda y belleza</option>
           <option value="Tecnologías">Tecnologías</option>
         </Select>
+      ) : type === "password" ? (
+        <Input
+          name={inputName}
+          value={inputValue}
+          onChange={onInputChange}
+          size="sm"
+          type={type}
+          fontSize="3xl"
+        />
       ) : type === "file" ? (
         <Box
           p={"3"}
@@ -96,7 +106,7 @@ export const InputCreateEvents = ({
           value={inputValue}
           onChange={onInputChange}
           placeholder={placeholder}
-          size="sm"
+          size={{ base: "sm", lg: "md" }}
           type={type}
         />
       )}

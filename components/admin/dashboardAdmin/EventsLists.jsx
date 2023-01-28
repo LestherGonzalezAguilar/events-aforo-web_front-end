@@ -20,16 +20,16 @@ export const EventsLists = ({ filterState }) => {
   const [eventsActive, eventsFinished] = useStatusEvents(eventsData);
 
   useEffect(() => {
-    handleData();
+    handleData();    
   });
 
-  const handleData = () => {
-    setEventsData(data);
+  const handleData = async () => {
+    await setEventsData(data);
   };
 
   return (
     <Box mt={10}>
-      {data ? (
+      {eventsData ? (
         <>
           {(filterState === "activos" || filterState === "todos") && (
             <Box>

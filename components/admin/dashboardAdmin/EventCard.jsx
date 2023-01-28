@@ -13,14 +13,16 @@ import {
   Badge,
   Box,
 } from "@chakra-ui/react";
+import moment from "moment/moment";
+import "moment/locale/es";
 import Link from "next/link";
 
 export const EventCard = (props) => {
   const {
     id,
     name,
-    date,
-    hour,
+    date_time,
+    place,
     capacity,
     img,
     category,
@@ -32,6 +34,11 @@ export const EventCard = (props) => {
   if (!state) {
     filter = "grayscale(80%)";
   }
+
+  moment.locale('es');
+
+  const date = moment(date_time).format("LL");
+  const hour = moment(date_time).format("LT");
 
   return (
     <article key={id}>
@@ -68,6 +75,7 @@ export const EventCard = (props) => {
               </Text>
             </Text>
             <Text>Capacidad: {capacity} personas</Text>
+            <Text>Lugar: {place}</Text>
           </Stack>
         </CardBody>
         <Divider />

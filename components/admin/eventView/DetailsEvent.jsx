@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Image from "next/image";
 import {
   Box,
@@ -14,12 +13,25 @@ import {
 import { EditIcon } from "@chakra-ui/icons";
 import { AttendeesList } from "./AttendeesList";
 import { data } from "../../../api/events";
+import Head from "next/head";
 
 export const DetailsEvent = () => {
   return (
     <div>
-      <Box>
-        <Box ratio={16 / 9} objectFit={"cover"} background={"black"}>
+      <Head>
+        <title>Aforify | Evento: </title>
+        <meta name="description" content="Evento" />
+      </Head>
+      <Box
+        maxWidth="1680px"
+        margin="auto"
+        mb={5}
+        width={{ base: "100%", md: "80%", lg: "70%" }}
+        justifyContent="center"
+        alignItems="center"
+        gap={4}
+      >
+        <Box ratio={16 / 9} objectFit={"cover"} background={"black"} my={10}>
           <Image
             src={"https://i.ytimg.com/vi/YlUKcNNmywk/maxresdefault.jpg"}
             alt={"asd"}
@@ -32,13 +44,23 @@ export const DetailsEvent = () => {
         </Box>
         <Flex mr={{ base: 8, lg: 20 }} my={10}>
           <Spacer />
-          <Button variant="link" colorScheme="red" size="lg" fontSize="2xl">
+          <Button
+            variant="solid"
+            colorScheme={"red"}
+            background={"red.400"}
+            size="lg"
+            fontSize="2xl"
+            color={"white"}
+          >
             <EditIcon mr={3} />
             Editar
           </Button>
         </Flex>
 
-        <Flex px={{ base: 8, lg: 20 }} flexDirection={{base: "column", md: "row"}}>
+        <Flex
+          px={{ base: 8, lg: 20 }}
+          flexDirection={{ base: "column", md: "row" }}
+        >
           <Box>
             <Heading as="h1" size="2xl">
               Nombre del evento

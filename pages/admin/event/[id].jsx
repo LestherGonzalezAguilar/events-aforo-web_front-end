@@ -1,15 +1,11 @@
-import { Box } from "@chakra-ui/react";
 import { DetailsEvent } from "../../../components/admin/eventView/DetailsEvent";
-import { NavBar } from "../../../components/admin/navbar/NavBar";
+import { Layout } from "../../../components/admin/Layout";
 
 const index = () => {
   return (
-    <>
-      <Box>
-        <NavBar />
-        <DetailsEvent />
-      </Box>
-    </>
+    <Layout>
+      <DetailsEvent />
+    </Layout>
   );
 };
 
