@@ -1,8 +1,9 @@
-import { Box, Button, Card, CardBody, CardFooter, Flex, Heading, Image, Stack, Tag, Text } from "@chakra-ui/react"
+import { Box, Button, Card, CardBody, CardFooter, Flex, Heading, Stack, Tag, Text } from "@chakra-ui/react"
 import Link from "next/link"
 import { AiFillEye } from "react-icons/ai"
 import { StateEvent } from "./StateEvent"
 import { getDateES } from "./helpers/getDateES"
+import Image from "next/image"
 
 export const EventCard = ({ event }) => {
 
@@ -16,11 +17,20 @@ export const EventCard = ({ event }) => {
                 <Tag color='white' fontWeight='semibold' backgroundColor={event.category.color}>{event.category.name}</Tag>
             </Box>
             <CardBody>
+                
                 <Image
+                    src={event.img}
+                    alt={event.name}
+                    borderRadius="lg"
+                    width='480'
+                    height='270'
+                    style={{borderRadius:'0.5rem', maxHeight:'270px'}}
+                />
+                {/* <Image
                     src={event.img}
                     alt='Green double couch with wooden legs'
                     borderRadius='lg'
-                />
+                /> */}
                 <Stack mt='6' spacing='1'>
                     <Heading size='md' my={2} color='gray.800'>{event.name}</Heading>
                     <Text fontWeight='regular' size='sm'>

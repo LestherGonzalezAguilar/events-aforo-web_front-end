@@ -13,12 +13,12 @@ const initialFormSearch = {
 
 export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
 
-    const { inputSearch, inputDate, selectOrganizator, selectEventState, selectEventCategory, onInputChange } = useForm(initialFormSearch)
+    const { inputSearch, inputDate, selectEventState, selectEventCategory, onInputChange } = useForm(initialFormSearch)
     
     const onSubmit = (e) => {
         e.preventDefault()
 
-        if (inputSearch === '' && inputDate === '' && selectOrganizator === '' && selectEventState === '' && selectEventCategory === '')
+        if (inputSearch === '' && inputDate === '' && selectEventState === '' && selectEventCategory === '')
             return onSubmitSearch(events)
         const inputDateFormatted = () => {
             let fecha = new Date(inputDate)
@@ -30,8 +30,8 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
         let eventFiltered = events.filter(event => { return event.name.match(inputSearch) })
         if (inputDate !== '')
             eventFiltered = eventFiltered.filter(event => { return event.date === inputDateFormatted() })
-        if (selectOrganizator !== '')
-            eventFiltered = eventFiltered.filter(event => { return event.user.name === selectOrganizator })
+        // if (selectOrganizator !== '')
+        //     eventFiltered = eventFiltered.filter(event => { return event.user.name === selectOrganizator })
         if (selectEventCategory !== '')
             eventFiltered = eventFiltered.filter(event => { return event.category.name === selectEventCategory })
         if (selectEventState !== '')
@@ -74,17 +74,16 @@ export const FilterEvents = ({ onSubmitSearch, events = [] }) => {
                     </Box>
 
                     {/* Organizador */}
-                    <Box>
+                    {/* <Box>
                         <Select placeholder='Seleccione...' size={{ base: 'sm', sm: 'sm', md: 'md', lg: 'lg' }}
                             value={selectOrganizator} name="selectOrganizator" onChange={onInputChange}
                         >
-                            {/* //TODO Realizar las opciones con los id correspondientes */}
                             <option value='user organizator'>Organizador 1</option>
                             <option value='option2'>Organizador 2</option>
                             <option value='option3'>Organizador 3</option>
                         </Select>
                         <Text mt='8px' color='gray.500'>Organizador</Text>
-                    </Box>
+                    </Box> */}
                     {/* Estado del evento */}
                     <Box>
                         <Select placeholder='Seleccione...' size={{ base: 'sm', sm: 'sm', md: 'md', lg: 'lg' }}

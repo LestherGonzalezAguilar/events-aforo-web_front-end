@@ -28,7 +28,7 @@ export default function HomePage() {
 
         <Box pb={4}>
           <Text id="events" as='h1' fontWeight='bold' fontSize={{ base: 18, md: 26 }} textDecoration='underline'>Eventos</Text>
-          <Box display='flex' gap={4} flexWrap='wrap' justifyContent='space-between'>
+          <Box display='flex' gap={4} flexWrap='wrap' justifyContent='flex-start'>
             {eventsAforify.map((event) => (
               <EventCard key={event.id} event={event} />
             ))}

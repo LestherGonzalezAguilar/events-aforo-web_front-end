@@ -25,7 +25,7 @@ export const InputsLayouts = ({
   return (
     <FormControl isInvalid={iserror}>
       {/* <FormControl isRequired isInvalid={iserror}> */}
-      <FormLabel mb="10px">{label} </FormLabel>
+      <FormLabel mb="10px" fontWeight='semibold'>{label} </FormLabel>
 
       {type === "Textarea" ? (
         <Textarea
