@@ -44,28 +44,18 @@ export const NavBar = () => {
           <Spacer />
           <Flex gap={3} alignItems="center" color="gray.800">
             <Link href="/admin">
-              <Text
-                fontWeight="bold"
-                pr={8}
-                fontSize="lg"
-                _hover={{ textDecoration: "underline", color: "#4548EB" }}
-              >
+              <Text fontWeight="bold" pr={8}>
                 Resumen
               </Text>
             </Link>
             <Link href="/admin/create-event">
-              <Text
-                fontWeight="bold"
-                pr={8}
-                fontSize="lg"
-                _hover={{ textDecoration: "underline", color: "#4548EB" }}
-              >
+              <Text fontWeight="bold" pr={8}>
                 Crear Evento
               </Text>
             </Link>
             <Menu pr={20}>
               <MenuButton
-                color="#4548EB"
+                color="blue"
                 as={Button}
                 rightIcon={<ChevronDownIcon />}
               >
