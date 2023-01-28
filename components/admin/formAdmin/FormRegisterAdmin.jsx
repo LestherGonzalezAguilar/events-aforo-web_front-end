@@ -70,16 +70,8 @@ export const FormRegisterAdmin = () => {
               mt={{ base: 10, lg: 20 }}
               mb={{ base: 5 }}
             >
-              Iniciar Sesión
+              Registrarse
             </Heading>
-            <Flex justifyContent={"center"}>
-              <Center>
-                <Text>¿No eres miembro?</Text>
-                <Text color={"red.300"} ml={2} fontWeight={"extrabold"}>
-                  <Link href={"/admin/register"}>Registrarse</Link>
-                </Text>
-              </Center>
-            </Flex>
           </Box>
 
           <InputsLayouts
