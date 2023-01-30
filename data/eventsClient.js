@@ -3,7 +3,7 @@ import { getStateEvent } from "../components/client/helpers/getStateEvent"
 export const eventsData = [
     {
         id: '12312rasibfa',
-        name: 'title event',
+        name: 'AC/DC',
         description: 'description event',
         date: new Date().toDateString(),
         hour: 1674147526292,
@@ -22,7 +22,7 @@ export const eventsData = [
     },
     {
         id: '12312rasibfaasda',
-        name: 'title event #2',
+        name: 'BootCamp de metodología Agile Scrum',
         description: 'description event #2',
         date: 'Fri Jan 27 2023',
         hour: new Date().getTime(),
@@ -42,7 +42,7 @@ export const eventsData = [
     },
     {
         id: 'asdaaasd21123',
-        name: 'title event #3',
+        name: 'Miss universe 2022',
         description: 'description event #3',
         date: new Date().toDateString(),
         hour: new Date().getTime(),
@@ -62,7 +62,7 @@ export const eventsData = [
     },
     {
         id: 'asdaaasd21124653',
-        name: 'title event #4',
+        name: 'Bootcamp desarrollo móvil y diseño UX/UI',
         description: 'description event #4',
         date: new Date().toDateString(),
         hour: new Date().getTime(),
