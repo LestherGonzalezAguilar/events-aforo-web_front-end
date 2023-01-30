@@ -26,13 +26,12 @@ const eventSubscribeFields = {
  */
 export default function DetailsEvent({ eventById: event }) {
     const router = useRouter()
-    
     useEffect(() => {
         if (event.state !== "Disponible") {
-            router.push(`/details-event/${event.id}`);
+            router.push(`/details-event/${id}`);
         }
-    }, [event])
-    
+    }, [event.state, event.id, router])
+
     const toast = useToast()
     const [formSubmitted, setFormSubmitted] = useState(false)
     const { name, lastName, email, nameValid, lastNameValid, emailValid, formState, onInputChange, isFormValid } = useForm(eventSubscribeFields, formValidations)

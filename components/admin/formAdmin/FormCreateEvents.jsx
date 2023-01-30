@@ -100,7 +100,7 @@ export const FormCreateEvents = () => {
 
     if (!isFormValid) return;
 
-    console.log(newFormState);
+    // console.log(newFormState);
 
     toast({
       title: "Evento Creado",

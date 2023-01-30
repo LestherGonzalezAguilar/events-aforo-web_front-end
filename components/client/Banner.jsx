@@ -25,7 +25,7 @@ export const Banner = () => {
           flexDirection="column"
           width={{ base: "80%", lg: "60%" }}
         >
-          <Text
+          <Box
             fontWeight="semibold"
             fontSize={{ base: "xl", md: "xl", lg: "xl", xl: "2xl" }}
           >
@@ -50,7 +50,7 @@ export const Banner = () => {
             </span>
             , puedes asistir, crear y administrar tus eventos para bodas,
             conciertos musicales, conferencias entre otros.
-          </Text>
+          </Box>
           <Flex gap={4} color="white" my={4}>
             <Link style={{ width: "100%" }} href="/admin/create-event">
               <Button
