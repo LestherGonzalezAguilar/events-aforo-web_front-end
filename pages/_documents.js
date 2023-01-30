@@ -1,5 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document"
-import '../styles/global.css';
+import '../styles/globals.css'
 /**
  * Document bock general page
  *
