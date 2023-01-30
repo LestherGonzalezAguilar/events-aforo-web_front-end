@@ -27,7 +27,7 @@ export const Banner = () => {
         >
           <Text
             fontWeight="semibold"
-            fontSize={{ base: "xl", md: "xl", lg: "xl", xl: "3xl" }}
+            fontSize={{ base: "xl", md: "xl", lg: "xl", xl: "2xl" }}
           >
             En{" "}
             <span

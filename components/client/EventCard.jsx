@@ -8,7 +8,10 @@ import Image from "next/image"
 export const EventCard = ({ event }) => {
 
     const hour = new Date(event.hour).getHours()
-    const minutes = new Date(event.hour).getMinutes()
+
+    let minutes = new Date(event.hour).getMinutes()
+
+    minutes = minutes.toString().length > 0 ? minutes : `0${minutes}`
 
     const dateES = getDateES(event.date)
     return (
@@ -17,14 +20,13 @@ export const EventCard = ({ event }) => {
                 <Tag color='white' fontWeight='semibold' backgroundColor={event.category.color}>{event.category.name}</Tag>
             </Box>
             <CardBody>
-                
+
                 <Image
                     src={event.img}
                     alt={event.name}
-                    borderRadius="lg"
                     width='480'
                     height='270'
-                    style={{borderRadius:'0.5rem', maxHeight:'270px'}}
+                    style={{ borderRadius: '0.5rem', maxHeight: '270px' }}
                 />
                 {/* <Image
                     src={event.img}

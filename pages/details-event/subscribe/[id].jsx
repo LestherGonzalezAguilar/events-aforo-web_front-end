@@ -1,12 +1,11 @@
-import { Box, Button, Flex, FormControl, FormErrorMessage, FormHelperText, FormLabel, Grid, Input, Text, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Text, useToast } from "@chakra-ui/react";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { InputsLayouts } from "../../../components/admin/formAdmin/InputsLayouts.jsx";
 import { BreadCrumb } from "../../../components/client/BreadCrumb";
 import { PageLayout } from "../../../components/client/layouts/PageLayout";
 import { eventsData } from "../../../data/eventsClient";
 import { useForm } from "../../../hooks";
-import { InputCreateEvents } from "../../../components/admin/formAdmin/InputCreateEvents";
-
 
 const formValidations = {
     name: [(value) => (value.length > 2), 'El nombre debe de ser mayor a 2 caracteres'],
@@ -19,7 +18,6 @@ const eventSubscribeFields = {
     email: '',
 }
 
-
 /**
  * the details-event
  *
@@ -28,31 +26,31 @@ const eventSubscribeFields = {
  */
 export default function DetailsEvent({ eventById: event }) {
     const router = useRouter()
-
+    
+    useEffect(() => {
+        if (event.state !== "Disponible") {
+            router.push(`/details-event/${event.id}`);
+        }
+    }, [event])
+    
     const toast = useToast()
-
     const [formSubmitted, setFormSubmitted] = useState(false)
     const { name, lastName, email, nameValid, lastNameValid, emailValid, formState, onInputChange, isFormValid } = useForm(eventSubscribeFields, formValidations)
 
     const dataRoot = { main: 'Suscripción al evento', root: [{ url: '/', title: 'Inicio' }, { url: `/details-event/${event.id}`, title: 'Detalle del evento' }] } //*Example
-
-    if (event.state !== "Disponible") {
-        router.push(`/details-event/${event.id}`);
-    }
 
     const onSubmit = (e) => {
         e.preventDefault()
         setFormSubmitted(true)
         if (!isFormValid) return
 
-        console.log('Submit');
         toast({
             title: `Suscripción existosa`,
             description: `Gracias por suscribirse al evento ${event.name}`,
             status: 'success',
             duration: 4000,
             isClosable: true,
-          })
+        })
     }
 
     return (
@@ -74,7 +72,7 @@ export default function DetailsEvent({ eventById: event }) {
                         <Flex flexDirection='column' mt={10} alignItems='center'>
                             <Grid rowGap={4} width='calc(1680px / 2)'>
                                 {/* Nombre del usuario anónimo */}
-                                <InputCreateEvents
+                                <InputsLayouts
                                     label={"Nombre:"}
                                     inputName={"name"}
                                     inputValue={name}
@@ -84,7 +82,7 @@ export default function DetailsEvent({ eventById: event }) {
                                     errorText={nameValid}
                                 />
                                 {/* Apellido del usuario anónimo */}
-                                <InputCreateEvents
+                                <InputsLayouts
                                     label={"Apellido:"}
                                     inputName={"lastName"}
                                     inputValue={lastName}
@@ -94,7 +92,7 @@ export default function DetailsEvent({ eventById: event }) {
                                     errorText={lastNameValid}
                                 />
                                 {/* Nombre del usuario anónimo */}
-                                <InputCreateEvents
+                                <InputsLayouts
                                     label={"Correo:"}
                                     inputName={"email"}
                                     inputValue={email}
