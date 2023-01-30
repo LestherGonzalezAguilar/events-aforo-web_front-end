@@ -52,7 +52,7 @@ export const FormRegisterAdmin = () => {
     setFormSumitted(true);
     if (!isFormValid) return;
 
-    console.log(formState);
+    // console.log(formState);
 
     setTimeout(() => {
       router.push("/admin");
